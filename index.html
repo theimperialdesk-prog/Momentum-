@@ -1,0 +1,4195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sunlit">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#E86A33" id="metaThemeColor" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Momentum" />
+  <title>Momentum — Habit &amp; Challenge Tracker</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png" />
+  <link rel="apple-touch-icon" href="./icon-192.png" />
+  <style>
+    /* =========================================================
+       MOMENTUM v7 — WARM TACTILE COMPANION DESIGN SYSTEM
+       ========================================================= */
+    :root, [data-theme="sunlit"] {
+      color-scheme: light;
+      --bg-app: #FAF6F0;
+      --bg-card: #FFFFFF;
+      --bg-soft: #F3ECE2;
+      --bg-soft-hover: #EAE0D2;
+      --border: #E8DED0;
+      --border-strong: #D8C9B5;
+      --text: #1F1A17;
+      --text-2: #5D534C;
+      --text-3: #8D8177;
+      --accent: #E86A33;
+      --accent-dark: #CC5420;
+      --accent-soft: rgba(232, 106, 51, 0.13);
+      --accent-grad: linear-gradient(135deg, #F48442 0%, #D94E2A 100%);
+      --success: #1D9A6C;
+      --success-soft: rgba(29, 154, 108, 0.14);
+      --amber: #D98A16;
+      --amber-soft: rgba(217, 138, 22, 0.16);
+      --info: #3B82F6;
+      --info-soft: rgba(59, 130, 246, 0.14);
+      --danger: #D94242;
+      --danger-soft: rgba(217, 66, 66, 0.12);
+      --shadow-sm: 0 2px 8px rgba(45, 30, 18, 0.05);
+      --shadow-md: 0 8px 24px rgba(45, 30, 18, 0.08);
+      --shadow-lg: 0 14px 36px rgba(35, 22, 12, 0.16);
+      --scrim: rgba(25, 18, 14, 0.52);
+      --heat-0: #EFE8DE;
+      --heat-1: #FBD3BC;
+      --heat-2: #F4A57B;
+      --heat-3: #EC7945;
+      --heat-4: #C94D1E;
+      --nav-bg: rgba(255, 255, 255, 0.94);
+    }
+
+    [data-theme="twilight"] {
+      color-scheme: dark;
+      --bg-app: #16131D;
+      --bg-card: #211C2C;
+      --bg-soft: #2C263A;
+      --bg-soft-hover: #362F47;
+      --border: #352E46;
+      --border-strong: #4A4061;
+      --text: #F7F2EC;
+      --text-2: #C2B8CC;
+      --text-3: #8D839A;
+      --accent: #F27E49;
+      --accent-dark: #D96532;
+      --accent-soft: rgba(242, 126, 73, 0.18);
+      --accent-grad: linear-gradient(135deg, #F58D54 0%, #D95332 100%);
+      --success: #2CC28B;
+      --success-soft: rgba(44, 194, 139, 0.18);
+      --amber: #F0AE3A;
+      --amber-soft: rgba(240, 174, 58, 0.18);
+      --info: #60A5FA;
+      --info-soft: rgba(96, 165, 250, 0.18);
+      --danger: #F26666;
+      --danger-soft: rgba(242, 102, 102, 0.18);
+      --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 10px 26px rgba(0, 0, 0, 0.36);
+      --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+      --scrim: rgba(8, 6, 14, 0.72);
+      --heat-0: #2C263A;
+      --heat-1: #5B3835;
+      --heat-2: #8E4A36;
+      --heat-3: #C76138;
+      --heat-4: #F27E49;
+      --nav-bg: rgba(33, 28, 44, 0.94);
+    }
+
+    [data-theme="midnight"] {
+      color-scheme: dark;
+      --bg-app: #000000;
+      --bg-card: #121216;
+      --bg-soft: #1D1D24;
+      --bg-soft-hover: #282832;
+      --border: #25252E;
+      --border-strong: #3A3A47;
+      --text: #F8F8FA;
+      --text-2: #B6B6C2;
+      --text-3: #7A7A88;
+      --accent: #F27E49;
+      --accent-dark: #D96532;
+      --accent-soft: rgba(242, 126, 73, 0.2);
+      --accent-grad: linear-gradient(135deg, #F58D54 0%, #D95332 100%);
+      --success: #2CC28B;
+      --success-soft: rgba(44, 194, 139, 0.2);
+      --amber: #F0AE3A;
+      --amber-soft: rgba(240, 174, 58, 0.2);
+      --info: #60A5FA;
+      --info-soft: rgba(96, 165, 250, 0.2);
+      --danger: #F26666;
+      --danger-soft: rgba(242, 102, 102, 0.2);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.65);
+      --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.85);
+      --scrim: rgba(0, 0, 0, 0.82);
+      --heat-0: #1C1C22;
+      --heat-1: #543125;
+      --heat-2: #8C452B;
+      --heat-3: #C95E32;
+      --heat-4: #F27E49;
+      --nav-bg: rgba(16, 16, 20, 0.95);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      background: var(--bg-app);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.45;
+      overflow-x: hidden;
+      overscroll-behavior-y: contain;
+    }
+
+    /* Prevent icons/spans inside buttons from stealing touch events */
+    button svg, button svg *, button span {
+      pointer-events: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: inherit;
+      padding: 0;
+      touch-action: manipulation;
+    }
+
+    input, textarea, select {
+      font-family: inherit;
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    .app-shell {
+      max-width: 520px;
+      margin: 0 auto;
+      min-height: 100dvh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Error Banner */
+    .error-banner {
+      display: none;
+      background: var(--danger);
+      color: #fff;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 950;
+    }
+    .error-banner.show { display: flex; }
+    .error-banner button {
+      background: rgba(255,255,255,0.22);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* Top Header */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg-app);
+      padding: calc(10px + env(safe-area-inset-top, 0px)) 16px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .brand-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 11px;
+      background: var(--accent-grad);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(232, 106, 51, 0.32);
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .brand-name {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .brand-sub {
+      font-size: 11.5px;
+      color: var(--text-3);
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+    .icon-btn:active { transform: scale(0.93); }
+    .icon-btn.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Main Content */
+    .main-view {
+      flex: 1;
+      padding: 14px 16px calc(155px + env(safe-area-inset-bottom, 0px));
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Date Bar & 7-Day Week Strip */
+    .date-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 12px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .date-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .date-nav-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      background: var(--bg-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+    .date-nav-btn:active { transform: scale(0.92); background: var(--bg-soft-hover); }
+
+    .date-center {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      position: relative;
+    }
+
+    .date-picker-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 12px;
+      background: var(--bg-soft);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      max-width: 100%;
+    }
+
+    .date-picker-input {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .today-jump-btn {
+      padding: 5px 10px;
+      border-radius: 99px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 11.5px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .week-strip {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+    }
+
+    .day-pill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 7px 2px 6px;
+      border-radius: 13px;
+      background: var(--bg-soft);
+      border: 1.5px solid transparent;
+      gap: 2px;
+      transition: transform 0.12s ease, background 0.15s ease;
+    }
+    .day-pill:active { transform: scale(0.94); }
+    .day-pill.is-today { border-color: var(--accent); }
+    .day-pill.is-selected {
+      background: var(--accent-grad);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 4px 12px rgba(232, 106, 51, 0.3);
+    }
+    .day-pill-wd {
+      font-size: 10px;
+      font-weight: 700;
+      opacity: 0.72;
+      text-transform: uppercase;
+    }
+    .day-pill-num {
+      font-size: 13.5px;
+      font-weight: 800;
+    }
+    .day-pill-pct {
+      font-size: 9.5px;
+      font-weight: 700;
+      opacity: 0.85;
+      line-height: 1;
+    }
+    .day-pill-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: transparent;
+    }
+    .day-pill.has-done .day-pill-dot { background: var(--success); }
+    .day-pill.has-part .day-pill-dot { background: var(--amber); }
+    .day-pill.is-selected .day-pill-dot { background: rgba(255,255,255,0.9); }
+
+    /* Cards & Bento Blocks */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Daily Percentage Hero Card with Spark Companion */
+    .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .hero-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .spark-wrap {
+      width: 54px;
+      height: 54px;
+      flex-shrink: 0;
+      animation: floatSpark 3.2s ease-in-out infinite;
+    }
+
+    @keyframes floatSpark {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .hero-copy {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .hero-greeting {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 3px;
+    }
+
+    .hero-sub {
+      font-size: 12.5px;
+      color: var(--text-2);
+      font-weight: 500;
+    }
+
+    .ring-box {
+      position: relative;
+      width: 66px;
+      height: 66px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ring-box svg {
+      width: 66px;
+      height: 66px;
+      transform: rotate(-90deg);
+    }
+
+    .ring-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 15px;
+      line-height: 1;
+    }
+    .ring-label small {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--text-3);
+      margin-top: 2px;
+    }
+
+    .hero-bar-wrap {
+      margin-top: 12px;
+      height: 8px;
+      border-radius: 99px;
+      background: var(--bg-soft);
+      overflow: hidden;
+    }
+
+    .hero-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: var(--accent-grad);
+      transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .hero-bar-fill.complete {
+      background: linear-gradient(90deg, #1D9A6C, #2CC28B);
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .mini-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: 99px;
+      background: var(--bg-soft);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-2);
+    }
+    .mini-pill.good { background: var(--success-soft); color: var(--success); }
+    .mini-pill.accent { background: var(--accent-soft); color: var(--accent); }
+    .mini-pill.amber { background: var(--amber-soft); color: var(--amber); }
+
+    /* Challenge Spotlight Banner on Today */
+    .challenge-spotlight {
+      background: var(--accent-grad);
+      color: #FFFFFF;
+      border-radius: 22px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 8px 22px rgba(217, 78, 42, 0.28);
+    }
+
+    .cs-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .cs-title-wrap {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .cs-kicker {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      opacity: 0.88;
+      margin-bottom: 2px;
+    }
+
+    .cs-title {
+      font-size: 16px;
+      font-weight: 800;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .cs-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .cs-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+    .cs-btn:active { background: rgba(255,255,255,0.32); }
+
+    .cs-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .cs-track {
+      height: 7px;
+      background: rgba(255,255,255,0.26);
+      border-radius: 99px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+
+    .cs-fill {
+      height: 100%;
+      background: #FFFFFF;
+      border-radius: 99px;
+      transition: width 0.35s ease;
+    }
+
+    .cs-switcher {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      margin-top: 10px;
+      padding-bottom: 2px;
+      scrollbar-width: none;
+    }
+    .cs-switcher::-webkit-scrollbar { display: none; }
+
+    .cs-chip {
+      padding: 4px 10px;
+      border-radius: 99px;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 11.5px;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .cs-chip.active {
+      background: #FFFFFF;
+      color: #C94D1E;
+    }
+
+    /* Section Header */
+    .sec-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin: 18px 2px 10px;
+    }
+
+    .sec-title {
+      font-size: 15px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sec-badge {
+      padding: 2px 8px;
+      border-radius: 99px;
+      background: var(--bg-soft);
+      color: var(--text-2);
+      font-size: 11.5px;
+      font-weight: 800;
+    }
+
+    .pill-cta {
+      padding: 6px 12px;
+      border-radius: 99px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12.5px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .pill-cta:active { transform: scale(0.95); }
+
+    /* Horizontal Scroll Chips */
+    .chip-row {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      padding: 2px 0 8px;
+      margin-bottom: 6px;
+      scrollbar-width: none;
+    }
+    .chip-row::-webkit-scrollbar { display: none; }
+
+    .filter-chip {
+      padding: 7px 13px;
+      border-radius: 99px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-2);
+      font-size: 12.5px;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: all 0.14s ease;
+    }
+    .filter-chip.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 3px 10px rgba(232, 106, 51, 0.25);
+    }
+
+    /* Habit Cards with Liquid Fill */
+    .habit-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .habit-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 13px 12px 13px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: border-color 0.2s ease, transform 0.12s ease;
+    }
+
+    .habit-card.state-done { border-color: rgba(29, 154, 108, 0.45); }
+    .habit-card.state-min { border-color: rgba(217, 138, 22, 0.5); }
+    .habit-card.state-freeze { border-color: rgba(59, 130, 246, 0.45); }
+    .habit-card.state-skip { opacity: 0.72; }
+
+    .habit-liquid {
+      position: absolute;
+      inset: 0 auto 0 0;
+      background: var(--success-soft);
+      pointer-events: none;
+      transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      z-index: 0;
+    }
+    .habit-card.state-min .habit-liquid { background: var(--amber-soft); }
+    .habit-card.state-freeze .habit-liquid { background: var(--info-soft); }
+
+    .habit-main {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .habit-emoji {
+      width: 40px;
+      height: 40px;
+      border-radius: 13px;
+      background: var(--bg-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .habit-info {
+      min-width: 0;
+      flex: 1;
+    }
+
+    .habit-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .habit-card.state-done .habit-title {
+      text-decoration: line-through;
+      opacity: 0.78;
+    }
+
+    .habit-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-top: 3px;
+      font-size: 11.5px;
+      color: var(--text-3);
+      font-weight: 600;
+    }
+
+    .habit-note-preview {
+      font-size: 11.5px;
+      color: var(--text-2);
+      margin-top: 4px;
+      background: var(--bg-soft);
+      padding: 3px 8px;
+      border-radius: 8px;
+      display: inline-block;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .habit-controls {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .check-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      border: 2px solid var(--border-strong);
+      background: var(--bg-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-3);
+      transition: all 0.15s ease;
+    }
+    .check-btn:active { transform: scale(0.9); }
+    .check-btn.done {
+      background: var(--success);
+      border-color: var(--success);
+      color: #fff;
+    }
+    .check-btn.min {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: #fff;
+    }
+    .check-btn.freeze {
+      background: var(--info);
+      border-color: var(--info);
+      color: #fff;
+    }
+
+    .stepper {
+      display: inline-flex;
+      align-items: center;
+      background: var(--bg-soft);
+      border-radius: 13px;
+      padding: 3px;
+      gap: 3px;
+    }
+    .step-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      background: var(--bg-card);
+      font-size: 16px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .step-btn.plus { background: var(--accent); color: #fff; }
+    .step-val {
+      min-width: 34px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .timer-pill-btn {
+      padding: 8px 12px;
+      border-radius: 13px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 12.5px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .timer-pill-btn.done { background: var(--success); }
+
+    .more-btn {
+      width: 34px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--text-3);
+    }
+    .more-btn:active { background: var(--bg-soft); color: var(--text); }
+
+    /* Accordion Completed Drawer */
+    .completed-toggle {
+      width: 100%;
+      margin-top: 12px;
+      padding: 11px 14px;
+      border-radius: 16px;
+      background: var(--bg-soft);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-2);
+    }
+
+    /* Routines */
+    .routine-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 14px;
+      margin-bottom: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+    .routine-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .routine-title-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      min-width: 0;
+      text-align: left;
+    }
+    .routine-steps {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .routine-step-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: var(--bg-soft);
+      text-align: left;
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+    .routine-step-btn.done {
+      background: var(--success-soft);
+      text-decoration: line-through;
+      color: var(--text-2);
+    }
+
+    /* Quick Daily To-Dos */
+    .todo-add-bar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .text-input, .textarea-input, .select-input {
+      width: 100%;
+      background: var(--bg-soft);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 11px 13px;
+      outline: none;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .text-input:focus, .textarea-input:focus, .select-input:focus {
+      border-color: var(--accent);
+      background: var(--bg-card);
+    }
+    .textarea-input {
+      min-height: 115px;
+      resize: vertical;
+      line-height: 1.55;
+    }
+
+    .todo-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 8px;
+    }
+    .todo-check {
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      border: 2px solid var(--border-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .todo-check.done {
+      background: var(--success);
+      border-color: var(--success);
+      color: #fff;
+    }
+    .todo-text {
+      flex: 1;
+      min-width: 0;
+      font-size: 14px;
+      font-weight: 600;
+      word-break: break-word;
+    }
+    .todo-item.done .todo-text {
+      text-decoration: line-through;
+      color: var(--text-3);
+    }
+
+    /* Challenges Tab */
+    .tracker-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .tracker-card.active-card {
+      border-color: var(--accent);
+      box-shadow: 0 6px 20px rgba(232, 106, 51, 0.14);
+    }
+    .tracker-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .tracker-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .small-action-btn {
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: var(--bg-soft);
+      font-size: 12.5px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      min-height: 34px;
+    }
+    .small-action-btn.danger {
+      background: var(--danger-soft);
+      color: var(--danger);
+    }
+    .small-action-btn.accent {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .tile-grid {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 5px;
+      margin-top: 12px;
+    }
+    .day-tile {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      background: var(--bg-soft);
+      font-size: 10px;
+      font-weight: 800;
+      color: var(--text-3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid transparent;
+    }
+    .day-tile.done { background: var(--success); color: #fff; }
+    .day-tile.min { background: var(--amber); color: #fff; }
+    .day-tile.freeze { background: var(--info); color: #fff; }
+    .day-tile.missed { background: var(--danger-soft); color: var(--danger); }
+    .day-tile.today { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+    .day-tile.today.done { background: var(--success); color: #fff; border-color: var(--text); }
+
+    /* Journal Tab */
+    .mood-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 6px;
+      margin: 10px 0 12px;
+    }
+    .mood-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 9px 4px;
+      border-radius: 14px;
+      background: var(--bg-soft);
+      border: 2px solid transparent;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-2);
+    }
+    .mood-btn .m-em { font-size: 22px; line-height: 1.1; }
+    .mood-btn.selected {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .journal-entry-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 14px;
+      margin-bottom: 10px;
+      box-shadow: var(--shadow-sm);
+    }
+    .je-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .je-body {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--text);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    /* Insights Bento */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .stat-tile {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+    .stat-num {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-top: 4px;
+    }
+    .stat-lbl {
+      font-size: 12px;
+      color: var(--text-3);
+      font-weight: 700;
+    }
+
+    .heatmap-grid {
+      display: grid;
+      grid-template-columns: repeat(15, 1fr);
+      gap: 4px;
+      margin-top: 10px;
+    }
+    .heat-cell {
+      aspect-ratio: 1;
+      border-radius: 4px;
+      background: var(--heat-0);
+    }
+    .heat-cell.l1 { background: var(--heat-1); }
+    .heat-cell.l2 { background: var(--heat-2); }
+    .heat-cell.l3 { background: var(--heat-3); }
+    .heat-cell.l4 { background: var(--heat-4); }
+
+    .week-bars {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      align-items: end;
+      height: 110px;
+      margin-top: 12px;
+      padding-top: 10px;
+    }
+    .wbar-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      height: 100%;
+      justify-content: flex-end;
+    }
+    .wbar-track {
+      width: 100%;
+      max-width: 28px;
+      height: 76px;
+      border-radius: 9px;
+      background: var(--bg-soft);
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .wbar-fill {
+      width: 100%;
+      background: var(--accent-grad);
+      border-radius: 9px;
+      transition: height 0.3s ease;
+    }
+
+    /* Empty States */
+    .empty-card {
+      background: var(--bg-card);
+      border: 1.5px dashed var(--border-strong);
+      border-radius: 22px;
+      padding: 24px 18px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .empty-emoji { font-size: 36px; margin-bottom: 8px; }
+    .empty-title { font-size: 15.5px; font-weight: 800; margin-bottom: 4px; }
+    .empty-desc { font-size: 13px; color: var(--text-2); margin-bottom: 14px; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 12px 16px;
+      border-radius: 15px;
+      font-size: 14px;
+      font-weight: 800;
+      transition: transform 0.12s ease, opacity 0.15s ease;
+    }
+    .btn:active { transform: scale(0.96); }
+    .btn-primary { background: var(--accent-grad); color: #fff; box-shadow: 0 5px 14px rgba(232, 106, 51, 0.28); }
+    .btn-soft { background: var(--bg-soft); color: var(--text); }
+    .btn-danger { background: var(--danger-soft); color: var(--danger); }
+    .btn-danger-solid { background: var(--danger); color: #fff; }
+    .btn-success { background: var(--success); color: #fff; }
+    .btn-full { width: 100%; }
+
+    /* Settings Rows */
+    .setting-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .setting-row:last-child { border-bottom: none; padding-bottom: 2px; }
+    .setting-row:first-child { padding-top: 2px; }
+    .setting-lbl { font-size: 14px; font-weight: 700; }
+    .setting-sub { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+
+    .theme-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .theme-opt {
+      padding: 10px 6px;
+      border-radius: 14px;
+      border: 2px solid var(--border);
+      background: var(--bg-soft);
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .theme-opt.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    /* Floating Action Button */
+    .fab {
+      position: fixed;
+      right: max(18px, calc(50% - 242px));
+      bottom: calc(82px + env(safe-area-inset-bottom, 0px));
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      background: var(--accent-grad);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 24px rgba(217, 78, 42, 0.4);
+      z-index: 60;
+      transition: transform 0.16s ease, opacity 0.16s ease;
+    }
+    .fab:active { transform: scale(0.92); }
+    .fab.hidden { display: none; }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      width: 100%;
+      max-width: 520px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-top: 1px solid var(--border);
+      padding: 8px 8px calc(10px + env(safe-area-inset-bottom, 0px));
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4px;
+      z-index: 70;
+    }
+
+    .nav-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      padding: 6px 2px;
+      border-radius: 14px;
+      color: var(--text-3);
+      font-size: 10.5px;
+      font-weight: 700;
+      transition: all 0.14s ease;
+    }
+    .nav-btn .nav-em { font-size: 19px; line-height: 1.1; }
+    .nav-btn.active {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    /* Bottom Sheets & Overlays */
+    .overlay {
+      display: none;
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      background: var(--scrim);
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+    }
+    .overlay.open {
+      display: flex !important;
+      pointer-events: auto !important;
+    }
+    .overlay.center-mode {
+      align-items: center;
+      padding: 20px;
+    }
+
+    #sheetOverlay { z-index: 300; }
+    #timerOverlay { z-index: 400; }
+    #pinLockOverlay { z-index: 500; background: var(--bg-app); }
+    #pinSetupOverlay { z-index: 600; }
+    #confirmOverlay { z-index: 900; }
+
+    .sheet {
+      width: 100%;
+      max-width: 520px;
+      max-height: 88dvh;
+      background: var(--bg-card);
+      border-radius: 26px 26px 0 0;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: sheetUp 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @keyframes sheetUp {
+      from { transform: translateY(28px); opacity: 0.6; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .sheet-head {
+      padding: 16px 18px 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .sheet-title { font-size: 16.5px; font-weight: 800; }
+    .sheet-close {
+      width: 34px;
+      height: 34px;
+      border-radius: 11px;
+      background: var(--bg-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .sheet-body {
+      padding: 16px 18px;
+      overflow-y: auto;
+      flex: 1;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .sheet-foot {
+      padding: 12px 18px calc(16px + env(safe-area-inset-bottom, 0px));
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+      flex-shrink: 0;
+      background: var(--bg-card);
+    }
+
+    .field { margin-bottom: 14px; }
+    .field-lbl {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--text-2);
+      margin-bottom: 6px;
+    }
+
+    .emoji-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .emoji-pick {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      background: var(--bg-soft);
+      font-size: 19px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid transparent;
+    }
+    .emoji-pick.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    .action-tile {
+      padding: 12px;
+      border-radius: 15px;
+      background: var(--bg-soft);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-align: left;
+    }
+    .action-tile.danger { background: var(--danger-soft); color: var(--danger); }
+
+    /* PIN Keypad */
+    .pin-card {
+      width: 100%;
+      max-width: 360px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+    .pin-dots {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin: 18px 0 12px;
+    }
+    .pin-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid var(--border-strong);
+      background: transparent;
+      transition: all 0.14s ease;
+    }
+    .pin-dot.filled {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: scale(1.1);
+    }
+    .pin-pad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .pin-key {
+      height: 54px;
+      border-radius: 16px;
+      background: var(--bg-soft);
+      font-size: 20px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pin-key:active { background: var(--accent-soft); color: var(--accent); transform: scale(0.95); }
+
+    @keyframes shakeAnim {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      75% { transform: translateX(8px); }
+    }
+    .shake { animation: shakeAnim 0.28s ease; }
+
+    /* Focus Timer */
+    .timer-display {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      text-align: center;
+      margin: 14px 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Privacy Blur */
+    body.privacy-mode .privacy-sensitive {
+      filter: blur(7px);
+      -webkit-filter: blur(7px);
+      transition: filter 0.18s ease;
+      user-select: none;
+    }
+    body.privacy-mode .privacy-sensitive:active {
+      filter: none;
+      -webkit-filter: none;
+    }
+
+    /* Toast */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+      transform: translateX(-50%) translateY(16px);
+      background: #1F1A17;
+      color: #FFFBF5;
+      padding: 11px 18px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1000;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      max-width: 90vw;
+      text-align: center;
+    }
+    [data-theme="twilight"] .toast, [data-theme="midnight"] .toast {
+      background: #F7F2EC;
+      color: #16131D;
+    }
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .muted { color: var(--text-2); }
+    .small { font-size: 12.5px; }
+    .row-between { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .row-gap { display: flex; align-items: center; gap: 8px; }
+    .mt-8 { margin-top: 8px; }
+    .mt-12 { margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Safety Error Banner -->
+    <div id="errorBanner" class="error-banner" role="alert">
+      <span id="errorBannerMsg">Something went wrong.</span>
+      <button type="button" data-action="dismiss-error">OK</button>
+    </div>
+
+    <!-- Top Header -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M13 2L4.5 13H11.5L10 22L19.5 10.5H12.5L13 2Z" fill="#FFFBF5"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <div class="brand-name">Momentum</div>
+          <div class="brand-sub" id="headerSub">Ready for a great day</div>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button type="button" class="icon-btn" id="privacyBtn" data-action="toggle-privacy" title="Privacy blur" aria-label="Toggle privacy blur">👁️</button>
+        <button type="button" class="icon-btn" id="themeBtn" data-action="cycle-theme" title="Switch theme" aria-label="Switch theme">☀️</button>
+        <button type="button" class="icon-btn" data-action="go-tab" data-tab="settings" title="Settings" aria-label="Open settings">⚙️</button>
+      </div>
+    </header>
+
+    <!-- Main Dynamic View -->
+    <main id="mainView" class="main-view"></main>
+
+    <!-- Floating Action Button -->
+    <button type="button" id="fabBtn" class="fab" data-action="fab-click" aria-label="Add new">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M12 5V19M5 12H19" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <button type="button" class="nav-btn active" data-action="go-tab" data-tab="today">
+        <span class="nav-em">☀️</span><span>Today</span>
+      </button>
+      <button type="button" class="nav-btn" data-action="go-tab" data-tab="challenges">
+        <span class="nav-em">🏆</span><span>Challenges</span>
+      </button>
+      <button type="button" class="nav-btn" data-action="go-tab" data-tab="journal">
+        <span class="nav-em">📖</span><span>Journal</span>
+      </button>
+      <button type="button" class="nav-btn" data-action="go-tab" data-tab="insights">
+        <span class="nav-em">📊</span><span>Insights</span>
+      </button>
+      <button type="button" class="nav-btn" data-action="go-tab" data-tab="settings">
+        <span class="nav-em">⚙️</span><span>Settings</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Standard Reusable Bottom Sheet -->
+  <div id="sheetOverlay" class="overlay" data-action="close-sheet-backdrop">
+    <div class="sheet" role="dialog" aria-modal="true">
+      <div class="sheet-head">
+        <div class="sheet-title" id="sheetTitle">Modal</div>
+        <button type="button" class="sheet-close" data-action="close-sheet" aria-label="Close">✕</button>
+      </div>
+      <div class="sheet-body" id="sheetBody"></div>
+      <div class="sheet-foot" id="sheetFoot"></div>
+    </div>
+  </div>
+
+  <!-- Focus Timer Overlay -->
+  <div id="timerOverlay" class="overlay" data-action="close-timer-backdrop">
+    <div class="sheet" role="dialog" aria-modal="true">
+      <div class="sheet-head">
+        <div class="sheet-title" id="timerTitle">⏱️ Focus Timer</div>
+        <button type="button" class="sheet-close" data-action="close-timer" aria-label="Close timer">✕</button>
+      </div>
+      <div class="sheet-body" id="timerBody"></div>
+      <div class="sheet-foot" id="timerFoot"></div>
+    </div>
+  </div>
+
+  <!-- Full-Screen PIN Lock Overlay -->
+  <div id="pinLockOverlay" class="overlay center-mode">
+    <div class="pin-card" id="pinLockCard">
+      <div style="font-size:36px;">🔐</div>
+      <h2 style="margin:6px 0 4px; font-size:19px;">Momentum Locked</h2>
+      <div class="small muted" id="pinLockMsg">Enter your 4-digit PIN</div>
+      <div class="pin-dots" id="pinLockDots"></div>
+      <div class="pin-pad">
+        <button type="button" class="pin-key" data-action="pin-lock-digit" data-val="1">1</button>
+        <button type="button" class="pin-key" data-action="pin-lock-digit" data-val="2">2</button>
+        <button type="button" class="pin-key" data-action="pin-lock-digit" data-val="3">3</button>
+        <button type="button" class="pin-key" data-action="pin-lock-digit" data-val="4">4</button>
+        <button type="button" class="pin-key" data-action="pin-lock-digit" data-val="5">5</button>
+        <button type="button" class="pin-key" data-action="pin-lock-digit" data-val="6">6</button>
+        <button type="button" class="pin-key" data-action="pin-lock-digit" data-val="7">7</button>
+        <button type="button" class="pin-key" data-action="pin-lock-digit" data-val="8">8</button>
+        <button type="button" class="pin-key" data-action="pin-lock-digit" data-val="9">9</button>
+        <button type="button" class="pin-key" data-action="pin-lock-clear" style="font-size:13px;">Clear</button>
+        <button type="button" class="pin-key" data-action="pin-lock-digit" data-val="0">0</button>
+        <button type="button" class="pin-key" data-action="pin-lock-back">⌫</button>
+      </div>
+      <button type="button" class="btn btn-danger btn-full mt-12" data-action="request-delete-pin">Forgot PIN? Remove Lock</button>
+    </div>
+  </div>
+
+  <!-- PIN Setup / Change Overlay -->
+  <div id="pinSetupOverlay" class="overlay center-mode" data-action="close-pin-setup-backdrop">
+    <div class="pin-card" id="pinSetupCard">
+      <div class="row-between" style="margin-bottom:6px;">
+        <span style="font-size:15px; font-weight:800;" id="pinSetupTitle">🔐 Set 4-Digit PIN</span>
+        <button type="button" class="sheet-close" data-action="close-pin-setup" aria-label="Close">✕</button>
+      </div>
+      <div class="small muted" id="pinSetupMsg">Choose a 4-digit PIN</div>
+      <div class="pin-dots" id="pinSetupDots"></div>
+      <div class="pin-pad">
+        <button type="button" class="pin-key" data-action="pin-setup-digit" data-val="1">1</button>
+        <button type="button" class="pin-key" data-action="pin-setup-digit" data-val="2">2</button>
+        <button type="button" class="pin-key" data-action="pin-setup-digit" data-val="3">3</button>
+        <button type="button" class="pin-key" data-action="pin-setup-digit" data-val="4">4</button>
+        <button type="button" class="pin-key" data-action="pin-setup-digit" data-val="5">5</button>
+        <button type="button" class="pin-key" data-action="pin-setup-digit" data-val="6">6</button>
+        <button type="button" class="pin-key" data-action="pin-setup-digit" data-val="7">7</button>
+        <button type="button" class="pin-key" data-action="pin-setup-digit" data-val="8">8</button>
+        <button type="button" class="pin-key" data-action="pin-setup-digit" data-val="9">9</button>
+        <button type="button" class="pin-key" data-action="pin-setup-clear" style="font-size:13px;">Clear</button>
+        <button type="button" class="pin-key" data-action="pin-setup-digit" data-val="0">0</button>
+        <button type="button" class="pin-key" data-action="pin-setup-back">⌫</button>
+      </div>
+      <div class="row-gap mt-12">
+        <button type="button" class="btn btn-soft" style="flex:1;" data-action="close-pin-setup">Cancel</button>
+        <button type="button" id="pinSetupDeleteBtn" class="btn btn-danger" style="flex:1; display:none;" data-action="request-delete-pin">Delete PIN</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- High Z-Index Confirmation Sheet -->
+  <div id="confirmOverlay" class="overlay center-mode" data-action="confirm-no-backdrop">
+    <div class="pin-card" style="text-align:left;">
+      <div style="font-size:17px; font-weight:800; margin-bottom:6px;" id="confirmTitle">Confirm</div>
+      <div class="small muted" style="line-height:1.5; margin-bottom:18px;" id="confirmMsg">Are you sure?</div>
+      <div class="row-gap">
+        <button type="button" class="btn btn-soft" style="flex:1;" data-action="confirm-no">Cancel</button>
+        <button type="button" class="btn btn-danger-solid" style="flex:1;" id="confirmYesBtn" data-action="confirm-yes">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden File Input for JSON Import -->
+  <input type="file" id="importFileInput" accept=".json,application/json" style="display:none;" />
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* =========================================================
+       1. CONSTANTS & HELPERS
+       ========================================================= */
+    const STORAGE_KEY = 'momentum_v7_state';
+    const LEGACY_KEYS = [
+      'momentum_v65_data', 'momentum_v64_data', 'momentum_v63_data',
+      'momentum_v62_data', 'momentum_v61_data', 'momentum_v6_data',
+      'momentum_v59_data', 'momentum_v58_data', 'momentum_v57_data',
+      'momentum_v56_data', 'momentum_v55_data', 'momentum_v54_data',
+      'momentum_v53_data', 'momentum_v5_data', 'momentum_v4_data'
+    ];
+
+    const CATEGORIES = [
+      { id: 'all', label: 'All', emoji: '✨' },
+      { id: 'office', label: 'Office', emoji: '🏢' },
+      { id: 'personal', label: 'Personal', emoji: '🌿' },
+      { id: 'health', label: 'Health', emoji: '💪' },
+      { id: 'study', label: 'Study', emoji: '📚' },
+      { id: 'mind', label: 'Mind', emoji: '🧠' }
+    ];
+
+    const MOODS = [
+      { id: 'amazing', emoji: '🤩', label: 'Amazing' },
+      { id: 'good', emoji: '😊', label: 'Good' },
+      { id: 'calm', emoji: '😌', label: 'Calm' },
+      { id: 'meh', emoji: '😕', label: 'Meh' },
+      { id: 'tough', emoji: '😫', label: 'Tough' }
+    ];
+
+    const HABIT_EMOJIS = ['💧','🏃','📚','🧘','💼','💻','🥗','😴','✍️','📵','🎯','🧹','🎸','🚶','☀️','🔥','🧠','💪'];
+    const CHALLENGE_EMOJIS = ['🏆','🏢','⚡','🔥','🚀','🌿','📚','💪','🎯','🌟'];
+    const SKIP_REASONS = ['Tired / Low energy', 'Busy day / Travel', 'Unwell', 'Forgot', 'Rest day'];
+
+    const THEME_META = {
+      sunlit: { color: '#E86A33', icon: '☀️', label: 'Sunlit Paper' },
+      twilight: { color: '#16131D', icon: '🌅', label: 'Cozy Twilight' },
+      midnight: { color: '#000000', icon: '🌌', label: 'Midnight Ink' }
+    };
+
+    function uid(prefix) {
+      return (prefix || 'id') + '_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 7);
+    }
+
+    function esc(str) {
+      return String(str == null ? '' : str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\x22/g, '&quot;')
+        .replace(/\x27/g, '&#39;');
+    }
+
+    function vibrate(ms) {
+      try { if (navigator.vibrate) navigator.vibrate(ms || 12); } catch (e) {}
+    }
+
+    /* Pure Local Calendar Date Math (Zero UTC toISOString bugs!) */
+    function pad2(n) { return n < 10 ? '0' + n : '' + n; }
+
+    function formatLocalDate(d) {
+      return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate());
+    }
+
+    function parseLocalDate(str) {
+      if (!str || typeof str !== 'string') return new Date();
+      const parts = str.split('-').map(Number);
+      if (parts.length !== 3 || parts.some(isNaN)) return new Date();
+      return new Date(parts[0], parts[1] - 1, parts[2], 12, 0, 0, 0);
+    }
+
+    function addDays(dateStr, delta) {
+      const d = parseLocalDate(dateStr);
+      d.setDate(d.getDate() + delta);
+      return formatLocalDate(d);
+    }
+
+    function getEffectiveToday(cutoffHour) {
+      const now = new Date();
+      const cut = Number(cutoffHour) || 0;
+      if (cut > 0 && now.getHours() < cut) {
+        now.setDate(now.getDate() - 1);
+      }
+      return formatLocalDate(now);
+    }
+
+    function friendlyDate(dateStr, todayStr) {
+      const d = parseLocalDate(dateStr);
+      const wd = d.toLocaleDateString('en-IN', { weekday: 'short' });
+      const mo = d.toLocaleDateString('en-IN', { month: 'short' });
+      const day = d.getDate();
+      if (dateStr === todayStr) return 'Today · ' + wd + ', ' + day + ' ' + mo;
+      if (dateStr === addDays(todayStr, -1)) return 'Yesterday · ' + day + ' ' + mo;
+      if (dateStr === addDays(todayStr, 1)) return 'Tomorrow · ' + day + ' ' + mo;
+      return wd + ', ' + day + ' ' + mo + ' ' + d.getFullYear();
+    }
+
+    /* =========================================================
+       2. STATE MANAGEMENT & SAFE MIGRATION
+       ========================================================= */
+    function createDefaultState() {
+      const today = getEffectiveToday(0);
+      return {
+        version: 7,
+        initialized: true,
+        settings: {
+          theme: 'sunlit',
+          privacyBlur: false,
+          cutoffHour: 0,
+          pinEnabled: false,
+          pin: '',
+          showEmptyChallengeBanner: true
+        },
+        habits: [
+          { id: 'hab_water', name: 'Morning Hydration', emoji: '💧', category: 'personal', type: 'quant', target: 8, unit: 'glasses', archived: false },
+          { id: 'hab_deepwork', name: 'Office Deep Focus', emoji: '💼', category: 'office', type: 'timed', target: 45, unit: 'min', archived: false },
+          { id: 'hab_walk', name: 'Daily Movement', emoji: '🏃', category: 'health', type: 'binary', target: 1, unit: '', archived: false },
+          { id: 'hab_read', name: 'Study / Reading', emoji: '📚', category: 'study', type: 'quant', target: 20, unit: 'pages', archived: false }
+        ],
+        logs: {},
+        trackers: [
+          {
+            id: 'trk_office90',
+            name: '90-Day Office & Growth',
+            emoji: '🏢',
+            days: 90,
+            startDate: today,
+            syncMode: 'category',
+            syncCategory: 'office',
+            syncHabitIds: [],
+            syncThreshold: 100,
+            overrides: {}
+          },
+          {
+            id: 'trk_sprint30',
+            name: '30-Day Personal Sprint',
+            emoji: '⚡',
+            days: 30,
+            startDate: today,
+            syncMode: 'all',
+            syncCategory: 'personal',
+            syncHabitIds: [],
+            syncThreshold: 70,
+            overrides: {}
+          }
+        ],
+        activeTrackerId: 'trk_office90',
+        routines: [
+          {
+            id: 'rtn_morning',
+            name: 'Morning Kickstart',
+            emoji: '🌅',
+            steps: [
+              { id: 'st_1', text: 'Drink a glass of water' },
+              { id: 'st_2', text: 'Plan top 3 priorities' },
+              { id: 'st_3', text: '5 min stretch or sunlight' }
+            ]
+          }
+        ],
+        routineLogs: {},
+        todos: {},
+        journals: {}
+      };
+    }
+
+    function sanitizeState(raw) {
+      if (!raw || typeof raw !== 'object') return createDefaultState();
+      const s = {
+        version: 7,
+        initialized: true,
+        settings: Object.assign({
+          theme: 'sunlit',
+          privacyBlur: false,
+          cutoffHour: 0,
+          pinEnabled: false,
+          pin: '',
+          showEmptyChallengeBanner: true
+        }, raw.settings || {}),
+        habits: Array.isArray(raw.habits) ? raw.habits.filter(Boolean).map(h => ({
+          id: String(h.id || uid('hab')),
+          name: String(h.name || 'Habit'),
+          emoji: String(h.emoji || '✨'),
+          category: String(h.category || 'personal'),
+          type: ['binary', 'quant', 'timed', 'quit'].includes(h.type) ? h.type : 'binary',
+          target: Math.max(1, Number(h.target) || 1),
+          unit: String(h.unit || ''),
+          archived: Boolean(h.archived)
+        })) : [],
+        logs: (raw.logs && typeof raw.logs === 'object' && !Array.isArray(raw.logs)) ? raw.logs : {},
+        trackers: Array.isArray(raw.trackers) ? raw.trackers.filter(Boolean).map(t => ({
+          id: String(t.id || uid('trk')),
+          name: String(t.name || 'Challenge'),
+          emoji: String(t.emoji || '🏆'),
+          days: Math.min(1000, Math.max(1, Number(t.days || t.duration || 30))),
+          startDate: (typeof t.startDate === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(t.startDate)) ? t.startDate : getEffectiveToday(0),
+          syncMode: ['all', 'category', 'habits', 'manual'].includes(t.syncMode) ? t.syncMode : 'all',
+          syncCategory: String(t.syncCategory || 'office'),
+          syncHabitIds: Array.isArray(t.syncHabitIds) ? t.syncHabitIds : [],
+          syncThreshold: Math.min(100, Math.max(10, Number(t.syncThreshold) || 70)),
+          overrides: (t.overrides && typeof t.overrides === 'object') ? t.overrides : {}
+        })) : [],
+        activeTrackerId: raw.activeTrackerId || null,
+        routines: Array.isArray(raw.routines) ? raw.routines.filter(Boolean).map(r => ({
+          id: String(r.id || uid('rtn')),
+          name: String(r.name || 'Routine'),
+          emoji: String(r.emoji || '🔁'),
+          steps: Array.isArray(r.steps) ? r.steps.map(st =>
+            typeof st === 'string' ? { id: uid('st'), text: st } : { id: String(st.id || uid('st')), text: String(st.text || '') }
+          ).filter(st => st.text.trim()) : []
+        })) : [],
+        routineLogs: (raw.routineLogs && typeof raw.routineLogs === 'object') ? raw.routineLogs : {},
+        todos: (raw.todos && typeof raw.todos === 'object') ? raw.todos : {},
+        journals: {}
+      };
+
+      // Normalize journals whether stored as object map or legacy array
+      if (raw.journals && typeof raw.journals === 'object') {
+        if (Array.isArray(raw.journals)) {
+          raw.journals.forEach(j => {
+            if (j && j.date) {
+              s.journals[j.date] = {
+                mood: j.mood || 'good',
+                text: String(j.text || j.content || ''),
+                updatedAt: j.updatedAt || Date.now()
+              };
+            }
+          });
+        } else {
+          Object.keys(raw.journals).forEach(k => {
+            const j = raw.journals[k];
+            if (j && typeof j === 'object') {
+              s.journals[k] = {
+                mood: j.mood || 'good',
+                text: String(j.text || j.content || ''),
+                updatedAt: j.updatedAt || Date.now()
+              };
+            }
+          });
+        }
+      }
+
+      if (!['sunlit', 'twilight', 'midnight'].includes(s.settings.theme)) {
+        s.settings.theme = 'sunlit';
+      }
+      if (!s.settings.pin || s.settings.pin.length !== 4) {
+        s.settings.pinEnabled = false;
+        s.settings.pin = '';
+      }
+      // Keep activeTrackerId valid (or null if user deleted all challenges)
+      if (s.trackers.length === 0) {
+        s.activeTrackerId = null;
+      } else if (!s.trackers.some(t => t.id === s.activeTrackerId)) {
+        s.activeTrackerId = s.trackers[0].id;
+      }
+      return s;
+    }
+
+    function loadState() {
+      try {
+        const direct = localStorage.getItem(STORAGE_KEY);
+        if (direct) return sanitizeState(JSON.parse(direct));
+        for (let i = 0; i < LEGACY_KEYS.length; i++) {
+          const old = localStorage.getItem(LEGACY_KEYS[i]);
+          if (old) {
+            const migrated = sanitizeState(JSON.parse(old));
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
+            return migrated;
+          }
+        }
+      } catch (err) {
+        showError('Recovered from saved data issue.');
+      }
+      const fresh = createDefaultState();
+      saveState(fresh);
+      return fresh;
+    }
+
+    function saveState(obj) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(obj || state));
+      } catch (err) {
+        showError('Storage full — consider exporting a JSON backup.');
+      }
+    }
+
+    /* =========================================================
+       3. RUNTIME UI STATE
+       ========================================================= */
+    let state = loadState();
+    let ui = {
+      tab: 'today',
+      activeDate: getEffectiveToday(state.settings.cutoffHour),
+      category: 'all',
+      completedOpen: false,
+      expandedRoutines: {},
+      journalMoodFilter: 'all',
+      journalSearch: '',
+      journalDraftDate: null,
+      journalDraftMood: 'good',
+      journalDraftText: '',
+      journalDirty: false,
+      deferredInstallPrompt: null,
+      isStandalone: window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true
+    };
+
+    let confirmPending = null;
+    let pinLockBuf = '';
+    let pinSetup = { step: 1, first: '', buf: '' };
+
+    // Focus Timer & Offline Web Audio Soundscapes
+    let timerState = {
+      habitId: null,
+      totalSec: 1500,
+      remainSec: 1500,
+      running: false,
+      interval: null,
+      sound: 'none',
+      audioCtx: null,
+      noiseNode: null
+    };
+
+    /* =========================================================
+       4. HABIT, DAILY % & SMART CHALLENGE SYNC CALCULATIONS
+       ========================================================= */
+    function getLog(dateStr, habitId) {
+      if (!state.logs[dateStr] || !state.logs[dateStr][habitId]) {
+        return { status: 'none', value: 0, note: '', skipReason: '' };
+      }
+      return state.logs[dateStr][habitId];
+    }
+
+    function setLog(dateStr, habitId, patch) {
+      if (!state.logs[dateStr]) state.logs[dateStr] = {};
+      const cur = getLog(dateStr, habitId);
+      state.logs[dateStr][habitId] = Object.assign({}, cur, patch);
+      saveState();
+    }
+
+    function getHabitProgress(habit, log) {
+      if (!log || log.status === 'none' || log.status === 'skip') {
+        if (habit.type === 'quant' || habit.type === 'timed') {
+          const v = Number(log && log.value) || 0;
+          return Math.min(1, v / Math.max(1, habit.target));
+        }
+        return 0;
+      }
+      if (log.status === 'done' || log.status === 'freeze') return 1;
+      if (log.status === 'min') return 0.5;
+      return 0;
+    }
+
+    function getActiveHabits() {
+      return state.habits.filter(h => !h.archived);
+    }
+
+    function getDailyStats(dateStr) {
+      const active = getActiveHabits();
+      if (active.length === 0) {
+        return { pct: 0, doneCount: 0, minCount: 0, total: 0 };
+      }
+      let score = 0;
+      let doneCount = 0;
+      let minCount = 0;
+      active.forEach(h => {
+        const log = getLog(dateStr, h.id);
+        const p = getHabitProgress(h, log);
+        score += p;
+        if (log.status === 'done' || log.status === 'freeze' || p >= 1) doneCount++;
+        else if (log.status === 'min') minCount++;
+      });
+      return {
+        pct: Math.round((score / active.length) * 100),
+        doneCount: doneCount,
+        minCount: minCount,
+        total: active.length
+      };
+    }
+
+    function getHabitStreak(habit) {
+      const today = getEffectiveToday(state.settings.cutoffHour);
+      let streak = 0;
+      let cursor = today;
+      for (let i = 0; i < 365; i++) {
+        const log = getLog(cursor, habit.id);
+        const p = getHabitProgress(habit, log);
+        if (log.status === 'done' || log.status === 'min' || log.status === 'freeze' || p >= 1) {
+          streak++;
+        } else if (i === 0) {
+          // Today not done yet doesn't break yesterday's streak
+        } else {
+          break;
+        }
+        cursor = addDays(cursor, -1);
+      }
+      return streak;
+    }
+
+    function getLinkedHabitsForTracker(tracker) {
+      const active = getActiveHabits();
+      if (tracker.syncMode === 'all') return active;
+      if (tracker.syncMode === 'category') return active.filter(h => h.category === tracker.syncCategory);
+      if (tracker.syncMode === 'habits') return active.filter(h => (tracker.syncHabitIds || []).includes(h.id));
+      return [];
+    }
+
+    function evaluateTrackerDay(tracker, dateStr) {
+      const today = getEffectiveToday(state.settings.cutoffHour);
+      if (tracker.overrides && tracker.overrides[dateStr]) {
+        return tracker.overrides[dateStr];
+      }
+      if (tracker.syncMode !== 'manual') {
+        const linked = getLinkedHabitsForTracker(tracker);
+        if (linked.length > 0) {
+          let score = 0;
+          let anyFreeze = false;
+          linked.forEach(h => {
+            const log = getLog(dateStr, h.id);
+            score += getHabitProgress(h, log);
+            if (log.status === 'freeze') anyFreeze = true;
+          });
+          const pct = Math.round((score / linked.length) * 100);
+          const threshold = Number(tracker.syncThreshold) || 70;
+          if (pct >= threshold) return 'done';
+          if (pct >= 50) return 'min';
+          if (anyFreeze) return 'freeze';
+        }
+      }
+      if (dateStr > today) return 'future';
+      if (dateStr === today) return 'today';
+      return 'missed';
+    }
+
+    function getTrackerSummary(tracker) {
+      const today = getEffectiveToday(state.settings.cutoffHour);
+      let completed = 0;
+      let minWins = 0;
+      let currentDayIndex = 1;
+      for (let i = 0; i < tracker.days; i++) {
+        const dStr = addDays(tracker.startDate, i);
+        if (dStr === today) currentDayIndex = i + 1;
+        else if (dStr < today) currentDayIndex = Math.min(tracker.days, i + 2);
+        const st = evaluateTrackerDay(tracker, dStr);
+        if (st === 'done' || st === 'freeze') completed++;
+        else if (st === 'min') minWins++;
+      }
+      const pct = Math.round(((completed + minWins * 0.5) / Math.max(1, tracker.days)) * 100);
+      const todayStatus = evaluateTrackerDay(tracker, today);
+      return { completed, minWins, pct, currentDayIndex, todayStatus };
+    }
+
+    /* =========================================================
+       5. SPARK COMPANION SVG & CONFETTI
+       ========================================================= */
+    function renderSparkSVG(pct) {
+      let face = '';
+      let crown = '';
+      if (pct >= 100) {
+        crown = '<path d="M18 12L22 5L27 10L32 5L36 12H18Z" fill="#FFD166" stroke="#C97A10" stroke-width="1.5" stroke-linejoin="round"/>';
+        face = '<path d="M19 27C20.5 25 22.5 25 24 27" stroke="#3B1D10" stroke-width="2.2" stroke-linecap="round"/><path d="M30 27C31.5 25 33.5 25 35 27" stroke="#3B1D10" stroke-width="2.2" stroke-linecap="round"/><path d="M21 33C23.5 37 30.5 37 33 33" stroke="#3B1D10" stroke-width="2.2" stroke-linecap="round"/>';
+      } else if (pct >= 50) {
+        face = '<circle cx="21" cy="26" r="2.3" fill="#3B1D10"/><circle cx="33" cy="26" r="2.3" fill="#3B1D10"/><path d="M22 33C24.5 36 29.5 36 32 33" stroke="#3B1D10" stroke-width="2.2" stroke-linecap="round"/>';
+      } else if (pct > 0) {
+        face = '<circle cx="21" cy="26" r="2.2" fill="#3B1D10"/><circle cx="33" cy="26" r="2.2" fill="#3B1D10"/><path d="M23 34H31" stroke="#3B1D10" stroke-width="2.2" stroke-linecap="round"/>';
+      } else {
+        face = '<path d="M18 27H24" stroke="#3B1D10" stroke-width="2.2" stroke-linecap="round"/><path d="M30 27H36" stroke="#3B1D10" stroke-width="2.2" stroke-linecap="round"/><circle cx="27" cy="34" r="2.2" fill="#3B1D10"/>';
+      }
+      return '<svg viewBox="0 0 54 54" width="54" height="54" fill="none">'
+        + '<defs><radialGradient id="spkGrad" cx="35%" cy="30%" r="70%"><stop offset="0%" stop-color="#FFE4A3"/><stop offset="55%" stop-color="#F69B56"/><stop offset="100%" stop-color="#E15A2D"/></radialGradient></defs>'
+        + crown
+        + '<circle cx="27" cy="30" r="19" fill="url(#spkGrad)"/>'
+        + '<circle cx="17.5" cy="31" r="2.6" fill="#FF7C6B" opacity="0.55"/>'
+        + '<circle cx="36.5" cy="31" r="2.6" fill="#FF7C6B" opacity="0.55"/>'
+        + face
+        + '</svg>';
+    }
+
+    function greetingFor(pct) {
+      const hr = new Date().getHours();
+      const base = hr < 12 ? 'Good morning' : (hr < 17 ? 'Good afternoon' : 'Good evening');
+      if (pct >= 100) return 'All done! Pure momentum 👑';
+      if (pct >= 70) return base + ' — almost there! 🔥';
+      if (pct > 0) return base + ' — great start! ✨';
+      return base + ' — ready when you are ☀️';
+    }
+
+    /* =========================================================
+       6. VIEW RENDERERS
+       ========================================================= */
+    function applyThemeAndPrivacy() {
+      const th = state.settings.theme || 'sunlit';
+      document.documentElement.setAttribute('data-theme', th);
+      const meta = document.getElementById('metaThemeColor');
+      if (meta && THEME_META[th]) meta.setAttribute('content', THEME_META[th].color);
+
+      const themeBtn = document.getElementById('themeBtn');
+      if (themeBtn && THEME_META[th]) themeBtn.textContent = THEME_META[th].icon;
+
+      document.body.classList.toggle('privacy-mode', Boolean(state.settings.privacyBlur));
+      const pBtn = document.getElementById('privacyBtn');
+      if (pBtn) {
+        pBtn.textContent = state.settings.privacyBlur ? '🙈' : '👁️';
+        pBtn.classList.toggle('active', Boolean(state.settings.privacyBlur));
+      }
+    }
+
+    function syncJournalDraft(force) {
+      if (force || ui.journalDraftDate !== ui.activeDate) {
+        const existing = state.journals[ui.activeDate];
+        ui.journalDraftDate = ui.activeDate;
+        ui.journalDraftMood = existing ? existing.mood : 'good';
+        ui.journalDraftText = existing ? existing.text : '';
+        ui.journalDirty = false;
+      }
+    }
+
+    function renderDatePanel() {
+      const today = getEffectiveToday(state.settings.cutoffHour);
+      const isToday = ui.activeDate === today;
+      let pillsHtml = '';
+      for (let offset = -3; offset <= 3; offset++) {
+        const dStr = addDays(ui.activeDate, offset);
+        const dObj = parseLocalDate(dStr);
+        const wd = dObj.toLocaleDateString('en-IN', { weekday: 'short' }).slice(0, 2);
+        const num = dObj.getDate();
+        const stats = getDailyStats(dStr);
+        const cls = ['day-pill'];
+        if (dStr === today) cls.push('is-today');
+        if (dStr === ui.activeDate) cls.push('is-selected');
+        if (stats.total > 0 && stats.pct >= 100) cls.push('has-done');
+        else if (stats.pct > 0) cls.push('has-part');
+        pillsHtml += '<button type="button" class="' + cls.join(' ') + '" data-action="select-date" data-date="' + dStr + '">'
+          + '<span class="day-pill-wd">' + wd + '</span>'
+          + '<span class="day-pill-num">' + num + '</span>'
+          + '<span class="day-pill-pct">' + (stats.total ? stats.pct + '%' : '·') + '</span>'
+          + '<span class="day-pill-dot"></span>'
+          + '</button>';
+      }
+
+      return '<div class="date-panel">'
+        + '<div class="date-row">'
+        + '<button type="button" class="date-nav-btn" data-action="shift-date" data-delta="-1" aria-label="Previous day">‹</button>'
+        + '<div class="date-center">'
+        + '<div class="date-picker-trigger">📅 ' + esc(friendlyDate(ui.activeDate, today))
+        + '<input type="date" class="date-picker-input" id="nativeDatePicker" value="' + ui.activeDate + '" aria-label="Pick date" />'
+        + '</div>'
+        + (isToday ? '' : '<button type="button" class="today-jump-btn" data-action="jump-today">Today</button>')
+        + '</div>'
+        + '<button type="button" class="date-nav-btn" data-action="shift-date" data-delta="1" aria-label="Next day">›</button>'
+        + '</div>'
+        + '<div class="week-strip">' + pillsHtml + '</div>'
+        + '</div>';
+    }
+
+    function renderHabitCard(h, dateStr) {
+      const log = getLog(dateStr, h.id);
+      const prog = getHabitProgress(h, log);
+      const pct = Math.round(prog * 100);
+      const streak = getHabitStreak(h);
+      const catObj = CATEGORIES.find(c => c.id === h.category) || CATEGORIES[2];
+
+      let stateCls = '';
+      if (log.status === 'done' || prog >= 1) stateCls = 'state-done';
+      else if (log.status === 'min') stateCls = 'state-min';
+      else if (log.status === 'freeze') stateCls = 'state-freeze';
+      else if (log.status === 'skip') stateCls = 'state-skip';
+
+      let controlHtml = '';
+      if (h.type === 'binary' || h.type === 'quit') {
+        const icon = log.status === 'done' ? '✓' : (log.status === 'min' ? '½' : (log.status === 'freeze' ? '❄️' : (h.type === 'quit' ? '🛡️' : '')));
+        const btnCls = log.status === 'done' ? 'done' : (log.status === 'min' ? 'min' : (log.status === 'freeze' ? 'freeze' : ''));
+        controlHtml = '<button type="button" class="check-btn ' + btnCls + '" data-action="toggle-habit" data-id="' + esc(h.id) + '" aria-label="Toggle habit">' + icon + '</button>';
+      } else if (h.type === 'quant') {
+        const val = Number(log.value) || 0;
+        controlHtml = '<div class="stepper">'
+          + '<button type="button" class="step-btn" data-action="step-habit" data-id="' + esc(h.id) + '" data-delta="-1" aria-label="Decrease">−</button>'
+          + '<span class="step-val">' + val + '/' + h.target + '</span>'
+          + '<button type="button" class="step-btn plus" data-action="step-habit" data-id="' + esc(h.id) + '" data-delta="1" aria-label="Increase">+</button>'
+          + '</div>';
+      } else if (h.type === 'timed') {
+        const val = Number(log.value) || 0;
+        const isDone = log.status === 'done' || val >= h.target;
+        controlHtml = '<button type="button" class="timer-pill-btn ' + (isDone ? 'done' : '') + '" data-action="open-timer" data-id="' + esc(h.id) + '">'
+          + (isDone ? '✓ ' + h.target + 'm' : '▶ ' + (val ? val + '/' : '') + h.target + 'm')
+          + '</button>';
+      }
+
+      const statusTag = log.status === 'min' ? ' · 🟡 Min Win'
+        : (log.status === 'freeze' ? ' · ❄️ Frozen'
+        : (log.status === 'skip' ? ' · ⏭️ Skipped' + (log.skipReason ? ' (' + esc(log.skipReason) + ')' : '') : ''));
+
+      return '<div class="habit-card ' + stateCls + '">'
+        + '<div class="habit-liquid" style="width:' + pct + '%;"></div>'
+        + '<div class="habit-main">'
+        + '<div class="habit-emoji">' + esc(h.emoji) + '</div>'
+        + '<div class="habit-info">'
+        + '<div class="habit-title privacy-sensitive">' + esc(h.name) + '</div>'
+        + '<div class="habit-meta">'
+        + '<span>' + catObj.emoji + ' ' + catObj.label + '</span>'
+        + (streak > 0 ? '<span>· 🔥 ' + streak + 'd</span>' : '')
+        + (h.unit ? '<span>· ' + esc(h.target + ' ' + h.unit) + '</span>' : '')
+        + '<span>' + statusTag + '</span>'
+        + '</div>'
+        + (log.note ? '<div class="habit-note-preview privacy-sensitive">📝 ' + esc(log.note) + '</div>' : '')
+        + '</div>'
+        + '</div>'
+        + '<div class="habit-controls">'
+        + controlHtml
+        + '<button type="button" class="more-btn" data-action="open-habit-actions" data-id="' + esc(h.id) + '" aria-label="Habit options">⋮</button>'
+        + '</div>'
+        + '</div>';
+    }
+
+    function renderTodayTab() {
+      const d = ui.activeDate;
+      const stats = getDailyStats(d);
+      const circ = 2 * Math.PI * 27;
+      const dashOffset = circ - (stats.pct / 100) * circ;
+      const bestStreak = getActiveHabits().reduce((mx, h) => Math.max(mx, getHabitStreak(h)), 0);
+
+      let html = renderDatePanel();
+
+      // 1. Daily Percentage Hero Card
+      html += '<div class="hero-card">'
+        + '<div class="hero-top">'
+        + '<div class="hero-left">'
+        + '<div class="spark-wrap">' + renderSparkSVG(stats.pct) + '</div>'
+        + '<div class="hero-copy">'
+        + '<div class="hero-greeting">' + esc(greetingFor(stats.pct)) + '</div>'
+        + '<div class="hero-sub">' + stats.doneCount + ' of ' + stats.total + ' habits completed' + (stats.minCount ? ' · ' + stats.minCount + ' min win' : '') + '</div>'
+        + '</div>'
+        + '</div>'
+        + '<div class="ring-box">'
+        + '<svg viewBox="0 0 66 66"><circle cx="33" cy="33" r="27" stroke="var(--bg-soft)" stroke-width="6.5" fill="none"/>'
+        + '<circle cx="33" cy="33" r="27" stroke="' + (stats.pct >= 100 ? 'var(--success)' : 'var(--accent)') + '" stroke-width="6.5" stroke-linecap="round" fill="none" stroke-dasharray="' + circ.toFixed(1) + '" stroke-dashoffset="' + dashOffset.toFixed(1) + '"/></svg>'
+        + '<div class="ring-label">' + stats.pct + '%<small>TODAY</small></div>'
+        + '</div>'
+        + '</div>'
+        + '<div class="hero-bar-wrap"><div class="hero-bar-fill ' + (stats.pct >= 100 ? 'complete' : '') + '" style="width:' + stats.pct + '%;"></div></div>'
+        + '<div class="hero-pills">'
+        + '<span class="mini-pill ' + (stats.pct >= 100 ? 'good' : 'accent') + '">⚡ ' + stats.pct + '% Daily Score</span>'
+        + '<span class="mini-pill amber">🔥 Best Streak: ' + bestStreak + 'd</span>'
+        + '</div>'
+        + '</div>';
+
+      // 2. Active Challenge Spotlight (Connected to Daily Habits!)
+      if (state.trackers.length > 0) {
+        const trk = state.trackers.find(t => t.id === state.activeTrackerId) || state.trackers[0];
+        const sum = getTrackerSummary(trk);
+        const daySt = evaluateTrackerDay(trk, d);
+        const syncDesc = trk.syncMode === 'all' ? 'Auto-syncs with All Habits (' + trk.syncThreshold + '%)'
+          : (trk.syncMode === 'category' ? 'Auto-syncs with ' + trk.syncCategory.toUpperCase() + ' habits'
+          : (trk.syncMode === 'habits' ? 'Auto-syncs with selected habits' : 'Manual check-in'));
+        const dayBadge = daySt === 'done' ? '✅ Day Earned!' : (daySt === 'min' ? '🟡 Min Win' : '⏳ In Progress');
+
+        let switchHtml = '';
+        if (state.trackers.length > 1) {
+          switchHtml = '<div class="cs-switcher">' + state.trackers.map(t =>
+            '<button type="button" class="cs-chip ' + (t.id === trk.id ? 'active' : '') + '" data-action="select-active-tracker" data-id="' + esc(t.id) + '">'
+            + esc(t.emoji + ' ' + t.name) + '</button>'
+          ).join('') + '</div>';
+        }
+
+        html += '<div class="challenge-spotlight">'
+          + '<div class="cs-head">'
+          + '<div class="cs-title-wrap">'
+          + '<div class="cs-kicker">Active Challenge · ' + dayBadge + '</div>'
+          + '<div class="cs-title privacy-sensitive">' + esc(trk.emoji + ' ' + trk.name) + '</div>'
+          + '</div>'
+          + '<div class="cs-actions">'
+          + '<button type="button" class="cs-btn" data-action="open-tracker-editor" data-id="' + esc(trk.id) + '" title="Edit challenge" aria-label="Edit challenge">✏️</button>'
+          + '<button type="button" class="cs-btn" data-action="request-delete-tracker" data-id="' + esc(trk.id) + '" title="Delete challenge" aria-label="Delete challenge">🗑️</button>'
+          + '</div>'
+          + '</div>'
+          + '<div class="cs-meta"><span>Day ' + sum.currentDayIndex + ' of ' + trk.days + ' (' + sum.completed + ' earned)</span><span>' + sum.pct + '%</span></div>'
+          + '<div class="cs-track"><div class="cs-fill" style="width:' + sum.pct + '%;"></div></div>'
+          + '<div style="font-size:11px; opacity:0.88; margin-top:6px;">🔗 ' + esc(syncDesc) + '</div>'
+          + switchHtml
+          + '</div>';
+      } else if (state.settings.showEmptyChallengeBanner) {
+        html += '<div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding:13px 15px;">'
+          + '<div><div style="font-weight:800; font-size:14px;">🏆 No Active Challenge</div><div class="small muted">Start a 30-day or 90-day goal linked to your habits.</div></div>'
+          + '<button type="button" class="pill-cta" data-action="open-tracker-editor">+ New</button>'
+          + '</div>';
+      }
+
+      // 3. Category Filter Pills + Habits Section
+      html += '<div class="sec-head">'
+        + '<div class="sec-title">🎯 Daily Habits <span class="sec-badge">' + stats.doneCount + '/' + stats.total + '</span></div>'
+        + '<button type="button" class="pill-cta" data-action="open-habit-editor">+ Add Habit</button>'
+        + '</div>';
+
+      html += '<div class="chip-row">' + CATEGORIES.map(c =>
+        '<button type="button" class="filter-chip ' + (ui.category === c.id ? 'active' : '') + '" data-action="set-category" data-cat="' + c.id + '">'
+        + c.emoji + ' ' + c.label + '</button>'
+      ).join('') + '</div>';
+
+      const allActive = getActiveHabits();
+      const filtered = ui.category === 'all' ? allActive : allActive.filter(h => h.category === ui.category);
+      const pending = [];
+      const doneList = [];
+      filtered.forEach(h => {
+        const log = getLog(d, h.id);
+        const p = getHabitProgress(h, log);
+        if (log.status === 'done' || p >= 1) doneList.push(h);
+        else pending.push(h);
+      });
+
+      if (allActive.length === 0) {
+        html += '<div class="empty-card"><div class="empty-emoji">🌱</div><div class="empty-title">Plant your first habit</div>'
+          + '<div class="empty-desc">Start small — hydration, a 20-minute study block, or a daily walk.</div>'
+          + '<button type="button" class="btn btn-primary" data-action="open-habit-editor">+ Create First Habit</button></div>';
+      } else if (filtered.length === 0) {
+        html += '<div class="empty-card"><div class="empty-emoji">🔍</div><div class="empty-title">No habits in this category</div>'
+          + '<div class="empty-desc">Switch to All or add a habit tagged here.</div>'
+          + '<button type="button" class="btn btn-soft" data-action="set-category" data-cat="all">Show All Habits</button></div>';
+      } else {
+        if (pending.length > 0) {
+          html += '<div class="habit-list">' + pending.map(h => renderHabitCard(h, d)).join('') + '</div>';
+        } else {
+          html += '<div class="empty-card" style="padding:18px;"><div class="empty-emoji">🎉</div><div class="empty-title">All caught up!</div>'
+            + '<div class="empty-desc" style="margin-bottom:0;">Every habit in this view is completed for this day.</div></div>';
+        }
+
+        if (doneList.length > 0) {
+          html += '<button type="button" class="completed-toggle" data-action="toggle-completed-drawer">'
+            + '<span>✅ Completed (' + doneList.length + ')</span>'
+            + '<span>' + (ui.completedOpen ? '▲ Hide' : '▼ Show') + '</span>'
+            + '</button>';
+          if (ui.completedOpen) {
+            html += '<div class="habit-list mt-8">' + doneList.map(h => renderHabitCard(h, d)).join('') + '</div>';
+          }
+        }
+      }
+
+      // 4. Collapsible Routines
+      html += '<div class="sec-head">'
+        + '<div class="sec-title">🔁 Routines <span class="sec-badge">' + state.routines.length + '</span></div>'
+        + '<button type="button" class="pill-cta" data-action="open-routine-editor">+ Add Routine</button>'
+        + '</div>';
+
+      if (state.routines.length === 0) {
+        html += '<div class="empty-card" style="padding:18px;"><div class="empty-emoji">🔁</div><div class="empty-title">No routines yet</div>'
+          + '<div class="empty-desc">Stack small morning or night steps into one clean checklist.</div>'
+          + '<button type="button" class="btn btn-soft" data-action="open-routine-editor">+ Create Routine</button></div>';
+      } else {
+        state.routines.forEach(r => {
+          const rLog = (state.routineLogs[d] && state.routineLogs[d][r.id]) || {};
+          const doneSteps = r.steps.filter(st => rLog[st.id]).length;
+          const isOpen = ui.expandedRoutines[r.id] !== false;
+          html += '<div class="routine-card">'
+            + '<div class="routine-head">'
+            + '<button type="button" class="routine-title-btn" data-action="toggle-routine-open" data-id="' + esc(r.id) + '">'
+            + '<span style="font-size:21px;">' + esc(r.emoji) + '</span>'
+            + '<span style="min-width:0; flex:1;"><strong class="privacy-sensitive" style="display:block; font-size:14.5px;">' + esc(r.name) + '</strong>'
+            + '<span class="small muted">' + doneSteps + '/' + r.steps.length + ' steps done</span></span>'
+            + '</button>'
+            + '<div class="row-gap">'
+            + '<button type="button" class="small-action-btn" data-action="open-routine-editor" data-id="' + esc(r.id) + '" aria-label="Edit routine">✏️</button>'
+            + '<button type="button" class="small-action-btn danger" data-action="request-delete-routine" data-id="' + esc(r.id) + '" aria-label="Delete routine">🗑️</button>'
+            + '</div>'
+            + '</div>';
+          if (isOpen && r.steps.length > 0) {
+            html += '<div class="routine-steps">' + r.steps.map(st => {
+              const checked = Boolean(rLog[st.id]);
+              return '<button type="button" class="routine-step-btn ' + (checked ? 'done' : '') + '" data-action="toggle-routine-step" data-rid="' + esc(r.id) + '" data-sid="' + esc(st.id) + '">'
+                + '<span>' + (checked ? '✅' : '⬜') + '</span>'
+                + '<span class="privacy-sensitive">' + esc(st.text) + '</span>'
+                + '</button>';
+            }).join('') + '</div>';
+          }
+          html += '</div>';
+        });
+      }
+
+      // 5. Daily Quick To-Dos
+      const dayTodos = Array.isArray(state.todos[d]) ? state.todos[d] : [];
+      html += '<div class="sec-head">'
+        + '<div class="sec-title">📝 Daily Tasks <span class="sec-badge">' + dayTodos.filter(t => t.done).length + '/' + dayTodos.length + '</span></div>'
+        + '</div>';
+
+      html += '<div class="todo-add-bar">'
+        + '<input type="text" id="quickTodoInput" class="text-input" placeholder="Add a quick task for this day..." autocomplete="off" />'
+        + '<button type="button" class="btn btn-primary" style="padding:0 16px; flex-shrink:0;" data-action="add-todo">Add</button>'
+        + '</div>'
+        + '<div class="chip-row" style="margin-bottom:10px;">'
+        + ['📞 Quick call', '📧 Clear inbox', '🛒 Groceries', '💊 Vitamins'].map(q =>
+          '<button type="button" class="filter-chip" data-action="quick-add-todo" data-text="' + esc(q) + '">' + esc(q) + '</button>'
+        ).join('') + '</div>';
+
+      if (dayTodos.length === 0) {
+        html += '<div class="empty-card" style="padding:16px;"><div class="empty-emoji">📝</div><div class="empty-title">No one-off tasks</div>'
+          + '<div class="empty-desc" style="margin-bottom:0;">Add quick reminders for today above.</div></div>';
+      } else {
+        html += dayTodos.map(t =>
+          '<div class="todo-item ' + (t.done ? 'done' : '') + '">'
+          + '<button type="button" class="todo-check ' + (t.done ? 'done' : '') + '" data-action="toggle-todo" data-id="' + esc(t.id) + '">' + (t.done ? '✓' : '') + '</button>'
+          + '<div class="todo-text privacy-sensitive">' + esc(t.text) + '</div>'
+          + '<button type="button" class="small-action-btn danger" data-action="delete-todo" data-id="' + esc(t.id) + '" aria-label="Delete task">🗑️</button>'
+          + '</div>'
+        ).join('');
+      }
+
+      return html;
+    }
+
+    function renderChallengesTab() {
+      const today = getEffectiveToday(state.settings.cutoffHour);
+      let html = '<div class="sec-head" style="margin-top:2px;">'
+        + '<div class="sec-title">🏆 Your Challenges <span class="sec-badge">' + state.trackers.length + '</span></div>'
+        + '<button type="button" class="pill-cta" data-action="open-tracker-editor">+ New Challenge</button>'
+        + '</div>';
+
+      if (state.trackers.length === 0) {
+        html += '<div class="empty-card">'
+          + '<div class="empty-emoji">🎯</div>'
+          + '<div class="empty-title">No Challenges Running</div>'
+          + '<div class="empty-desc">Create a 30-day sprint, 90-day office plan, or any custom challenge (1–1000 days) connected directly to your habits.</div>'
+          + '<button type="button" class="btn btn-primary" data-action="open-tracker-editor">+ Create Challenge</button>'
+          + '</div>';
+        return html;
+      }
+
+      state.trackers.forEach(trk => {
+        const sum = getTrackerSummary(trk);
+        const isActive = trk.id === state.activeTrackerId;
+        const syncLabel = trk.syncMode === 'all' ? '🔗 Synced: All Habits (≥' + trk.syncThreshold + '%)'
+          : (trk.syncMode === 'category' ? '🔗 Synced: ' + trk.syncCategory.toUpperCase() + ' habits (≥' + trk.syncThreshold + '%)'
+          : (trk.syncMode === 'habits' ? '🔗 Synced: ' + (trk.syncHabitIds || []).length + ' chosen habits' : '✋ Manual tap check-in'));
+
+        // Show up to 90 tiles directly (or first 90 around current day for huge 365-day challenges)
+        const maxTiles = Math.min(trk.days, 100);
+        let tilesHtml = '';
+        for (let i = 0; i < maxTiles; i++) {
+          const dStr = addDays(trk.startDate, i);
+          const st = evaluateTrackerDay(trk, dStr);
+          const cls = ['day-tile', st];
+          if (dStr === today) cls.push('today');
+          tilesHtml += '<button type="button" class="' + cls.join(' ') + '" data-action="toggle-tracker-tile" data-id="' + esc(trk.id) + '" data-date="' + dStr + '" title="Day ' + (i + 1) + ' (' + dStr + ')">' + (i + 1) + '</button>';
+        }
+
+        html += '<div class="tracker-card ' + (isActive ? 'active-card' : '') + '">'
+          + '<div class="tracker-head">'
+          + '<div style="min-width:0; flex:1;">'
+          + '<div style="font-size:16px; font-weight:800;" class="privacy-sensitive">' + esc(trk.emoji + ' ' + trk.name) + '</div>'
+          + '<div class="small muted" style="margin-top:2px;">' + trk.days + ' days · Started ' + esc(trk.startDate) + '</div>'
+          + '<div class="small" style="color:var(--accent); font-weight:700; margin-top:4px;">' + esc(syncLabel) + '</div>'
+          + '</div>'
+          + '<div class="tracker-actions">'
+          + (!isActive ? '<button type="button" class="small-action-btn accent" data-action="select-active-tracker" data-id="' + esc(trk.id) + '">Pin</button>' : '<span class="mini-pill accent">Pinned</span>')
+          + '<button type="button" class="small-action-btn" data-action="open-tracker-editor" data-id="' + esc(trk.id) + '" aria-label="Edit challenge">✏️</button>'
+          + '<button type="button" class="small-action-btn danger" data-action="request-delete-tracker" data-id="' + esc(trk.id) + '" aria-label="Delete challenge">🗑️</button>'
+          + '</div>'
+          + '</div>'
+          + '<div class="row-between small" style="font-weight:800;"><span>' + sum.completed + ' / ' + trk.days + ' days earned' + (sum.minWins ? ' (+' + sum.minWins + ' min)' : '') + '</span><span>' + sum.pct + '%</span></div>'
+          + '<div class="hero-bar-wrap" style="margin-top:6px;"><div class="hero-bar-fill ' + (sum.pct >= 100 ? 'complete' : '') + '" style="width:' + sum.pct + '%;"></div></div>'
+          + '<div class="tile-grid">' + tilesHtml + '</div>'
+          + (trk.days > 100 ? '<div class="small muted mt-8">Showing first 100 days of ' + trk.days + ' · Tap any tile to toggle manually.</div>' : '<div class="small muted mt-8">Tap any day tile to manually toggle done/clear, or let linked habits auto-complete it!</div>')
+          + '</div>';
+      });
+
+      return html;
+    }
+
+    function renderJournalTab() {
+      syncJournalDraft(false);
+      const d = ui.activeDate;
+      const today = getEffectiveToday(state.settings.cutoffHour);
+      const existing = state.journals[d];
+
+      let html = renderDatePanel();
+
+      // Editor Card
+      html += '<div class="card">'
+        + '<div class="row-between">'
+        + '<div style="font-weight:800; font-size:16px;">✍️ Reflection for ' + esc(d === today ? 'Today' : d) + '</div>'
+        + '<span id="journalStatusBadge" class="mini-pill ' + (ui.journalDirty ? 'amber' : (existing ? 'good' : '')) + '">'
+        + (ui.journalDirty ? '● Unsaved' : (existing ? '✓ Saved' : 'New Entry'))
+        + '</span>'
+        + '</div>'
+        + '<div class="small muted" style="margin-top:4px;">How are you feeling today?</div>'
+        + '<div class="mood-grid">' + MOODS.map(m =>
+          '<button type="button" class="mood-btn ' + (ui.journalDraftMood === m.id ? 'selected' : '') + '" data-action="pick-journal-mood" data-mood="' + m.id + '">'
+          + '<span class="m-em">' + m.emoji + '</span><span>' + m.label + '</span></button>'
+        ).join('') + '</div>'
+        + '<div class="chip-row" style="margin-bottom:8px;">'
+        + [
+          { lbl: '✨ Best moment', txt: 'Best moment today: ' },
+          { lbl: '🙏 Grateful for', txt: 'Grateful for: ' },
+          { lbl: '🎯 Tomorrow focus', txt: 'Tomorrow I will focus on: ' }
+        ].map(p =>
+          '<button type="button" class="filter-chip" data-action="insert-journal-prompt" data-prompt="' + esc(p.txt) + '">' + p.lbl + '</button>'
+        ).join('') + '</div>'
+        + '<textarea id="journalTextInput" class="textarea-input privacy-sensitive" placeholder="Write your thoughts, wins, lessons, or anything on your mind...">' + esc(ui.journalDraftText) + '</textarea>'
+        + '<div class="row-gap mt-12">'
+        + '<button type="button" class="btn btn-primary" style="flex:2;" data-action="save-journal">💾 ' + (existing ? 'Update Entry' : 'Save Entry') + '</button>'
+        + (existing ? '<button type="button" class="btn btn-danger" style="flex:1;" data-action="request-delete-journal" data-date="' + d + '">🗑️ Delete</button>' : '')
+        + '</div>'
+        + '</div>';
+
+      // Archive Header + Search + Mood Filter
+      const allDates = Object.keys(state.journals).sort((a, b) => (a < b ? 1 : -1));
+      html += '<div class="sec-head">'
+        + '<div class="sec-title">📚 Saved Journal Archive <span class="sec-badge">' + allDates.length + '</span></div>'
+        + '</div>';
+
+      if (allDates.length > 0) {
+        html += '<div style="margin-bottom:8px;"><input type="search" id="journalSearchInput" class="text-input" placeholder="🔍 Search entries by word or date..." value="' + esc(ui.journalSearch) + '" /></div>'
+          + '<div class="chip-row">'
+          + '<button type="button" class="filter-chip ' + (ui.journalMoodFilter === 'all' ? 'active' : '') + '" data-action="filter-journal-mood" data-mood="all">All Moods</button>'
+          + MOODS.map(m =>
+            '<button type="button" class="filter-chip ' + (ui.journalMoodFilter === m.id ? 'active' : '') + '" data-action="filter-journal-mood" data-mood="' + m.id + '">' + m.emoji + ' ' + m.label + '</button>'
+          ).join('') + '</div>';
+      }
+
+      const q = (ui.journalSearch || '').trim().toLowerCase();
+      const filteredDates = allDates.filter(dk => {
+        const entry = state.journals[dk];
+        if (!entry) return false;
+        if (ui.journalMoodFilter !== 'all' && entry.mood !== ui.journalMoodFilter) return false;
+        if (q && !(dk.toLowerCase().includes(q) || (entry.text || '').toLowerCase().includes(q))) return false;
+        return true;
+      });
+
+      if (allDates.length === 0) {
+        html += '<div class="empty-card"><div class="empty-emoji">📖</div><div class="empty-title">Your journal is empty</div>'
+          + '<div class="empty-desc" style="margin-bottom:0;">Pick a mood or jot down one quick sentence above and tap Save Entry.</div></div>';
+      } else if (filteredDates.length === 0) {
+        html += '<div class="empty-card"><div class="empty-emoji">🔎</div><div class="empty-title">No matching entries</div>'
+          + '<div class="empty-desc">Try clearing your search or mood filter.</div>'
+          + '<button type="button" class="btn btn-soft" data-action="clear-journal-filters">Reset Filters</button></div>';
+      } else {
+        html += filteredDates.map(dk => {
+          const entry = state.journals[dk];
+          const moodObj = MOODS.find(m => m.id === entry.mood) || MOODS[1];
+          return '<div class="journal-entry-card">'
+            + '<div class="je-head">'
+            + '<div class="row-gap">'
+            + '<span class="mini-pill accent">' + moodObj.emoji + ' ' + moodObj.label + '</span>'
+            + '<strong class="small">' + esc(friendlyDate(dk, today)) + '</strong>'
+            + '</div>'
+            + '<div class="row-gap">'
+            + '<button type="button" class="small-action-btn" data-action="edit-journal-entry" data-date="' + dk + '" aria-label="Edit journal">✏️</button>'
+            + '<button type="button" class="small-action-btn danger" data-action="request-delete-journal" data-date="' + dk + '" aria-label="Delete journal">🗑️</button>'
+            + '</div>'
+            + '</div>'
+            + '<div class="je-body privacy-sensitive">' + (entry.text ? esc(entry.text) : '<span class="muted small">(Mood logged without note)</span>') + '</div>'
+            + '</div>';
+        }).join('');
+      }
+
+      return html;
+    }
+
+    function renderInsightsTab() {
+      const today = getEffectiveToday(state.settings.cutoffHour);
+      const activeHabits = getActiveHabits();
+      const todayStats = getDailyStats(today);
+
+      // Past 7 days consistency & bars
+      let weekSum = 0;
+      let weekBarsHtml = '';
+      for (let i = 6; i >= 0; i--) {
+        const dStr = addDays(today, -i);
+        const st = getDailyStats(dStr);
+        weekSum += st.pct;
+        const wd = parseLocalDate(dStr).toLocaleDateString('en-IN', { weekday: 'short' }).slice(0, 2);
+        weekBarsHtml += '<div class="wbar-col">'
+          + '<span style="font-size:10px; font-weight:800; color:var(--text-3);">' + st.pct + '%</span>'
+          + '<div class="wbar-track"><div class="wbar-fill" style="height:' + st.pct + '%;"></div></div>'
+          + '<span style="font-size:11px; font-weight:800; color:' + (i === 0 ? 'var(--accent)' : 'var(--text-2)') + ';">' + wd + '</span>'
+          + '</div>';
+      }
+      const weekAvg = Math.round(weekSum / 7);
+
+      // Total check-ins & best streak
+      let totalDone = 0;
+      Object.keys(state.logs).forEach(dk => {
+        const dayObj = state.logs[dk] || {};
+        Object.keys(dayObj).forEach(hid => {
+          if (dayObj[hid] && (dayObj[hid].status === 'done' || dayObj[hid].status === 'min')) totalDone++;
+        });
+      });
+      const bestStreak = activeHabits.reduce((mx, h) => Math.max(mx, getHabitStreak(h)), 0);
+
+      // 90-day Heatmap
+      let heatCells = '';
+      for (let i = 89; i >= 0; i--) {
+        const dStr = addDays(today, -i);
+        const p = getDailyStats(dStr).pct;
+        const lvl = p === 0 ? '' : (p < 35 ? 'l1' : (p < 65 ? 'l2' : (p < 95 ? 'l3' : 'l4')));
+        heatCells += '<div class="heat-cell ' + lvl + '" title="' + dStr + ': ' + p + '%"></div>';
+      }
+
+      let html = '<div class="stats-grid">'
+        + '<div class="stat-tile"><div class="stat-lbl">🔥 Best Streak</div><div class="stat-num">' + bestStreak + 'd</div></div>'
+        + '<div class="stat-tile"><div class="stat-lbl">📅 7-Day Average</div><div class="stat-num">' + weekAvg + '%</div></div>'
+        + '<div class="stat-tile"><div class="stat-lbl">✅ Total Check-ins</div><div class="stat-num">' + totalDone + '</div></div>'
+        + '<div class="stat-tile"><div class="stat-lbl">📖 Journal Entries</div><div class="stat-num">' + Object.keys(state.journals).length + '</div></div>'
+        + '</div>';
+
+      // Weekly Bar Card
+      html += '<div class="card">'
+        + '<div class="row-between"><div style="font-weight:800; font-size:15px;">📈 Last 7 Days Momentum</div><span class="mini-pill accent">' + weekAvg + '% avg</span></div>'
+        + '<div class="week-bars">' + weekBarsHtml + '</div>'
+        + '</div>';
+
+      // 90-Day Heatmap
+      html += '<div class="card">'
+        + '<div class="row-between"><div style="font-weight:800; font-size:15px;">🟩 90-Day Consistency Map</div><span class="small muted">Less → More</span></div>'
+        + '<div class="heatmap-grid">' + heatCells + '</div>'
+        + '</div>';
+
+      // Per-Habit Breakdown
+      html += '<div class="card">'
+        + '<div style="font-weight:800; font-size:15px; margin-bottom:10px;">🎯 Per-Habit Consistency (30d)</div>';
+      if (activeHabits.length === 0) {
+        html += '<div class="small muted">Add habits on the Today tab to see individual streaks and 30-day scores.</div>';
+      } else {
+        activeHabits.forEach(h => {
+          let hits = 0;
+          for (let i = 0; i < 30; i++) {
+            const log = getLog(addDays(today, -i), h.id);
+            const p = getHabitProgress(h, log);
+            if (p >= 1 || log.status === 'done') hits += 1;
+            else if (log.status === 'min') hits += 0.5;
+          }
+          const rate = Math.round((hits / 30) * 100);
+          html += '<div style="margin-bottom:10px;">'
+            + '<div class="row-between small" style="font-weight:700; margin-bottom:4px;">'
+            + '<span class="privacy-sensitive">' + esc(h.emoji + ' ' + h.name) + '</span>'
+            + '<span>🔥 ' + getHabitStreak(h) + 'd · ' + rate + '%</span>'
+            + '</div>'
+            + '<div class="hero-bar-wrap" style="margin-top:0;"><div class="hero-bar-fill ' + (rate >= 80 ? 'complete' : '') + '" style="width:' + rate + '%;"></div></div>'
+            + '</div>';
+        });
+      }
+      html += '</div>';
+
+      // Milestone Share Card
+      html += '<div class="card">'
+        + '<div style="font-weight:800; font-size:15px; margin-bottom:4px;">🏅 Shareable Milestone Card</div>'
+        + '<div class="small muted" style="margin-bottom:12px;">Generate a crisp PNG snapshot of your streak and consistency to save or share on WhatsApp.</div>'
+        + '<button type="button" class="btn btn-primary btn-full" data-action="generate-milestone">🎨 Generate Milestone PNG</button>'
+        + '</div>';
+
+      return html;
+    }
+
+    function renderSettingsTab() {
+      const archived = state.habits.filter(h => h.archived);
+      const installBlock = ui.isStandalone
+        ? '<span class="mini-pill good">✅ Installed App</span>'
+        : (ui.deferredInstallPrompt
+            ? '<button type="button" class="btn btn-primary" style="padding:8px 14px;" data-action="trigger-pwa-install">📲 Install</button>'
+            : '<span class="mini-pill">Chrome ⋮ → Install</span>');
+
+      let html = '';
+
+      // Android App Install Status Card
+      html += '<div class="card">'
+        + '<div class="setting-row">'
+        + '<div><div class="setting-lbl">📱 Android App Mode</div><div class="setting-sub">' + (ui.isStandalone ? 'Running as a full-screen installed Android app.' : 'Install via Chrome for full-screen & offline mode.') + '</div></div>'
+        + installBlock
+        + '</div>'
+        + '</div>';
+
+      // Appearance
+      html += '<div class="card">'
+        + '<div style="font-weight:800; font-size:15px; margin-bottom:4px;">🎨 Theme</div>'
+        + '<div class="theme-cards">'
+        + ['sunlit', 'twilight', 'midnight'].map(k =>
+          '<button type="button" class="theme-opt ' + (state.settings.theme === k ? 'active' : '') + '" data-action="set-theme" data-theme-val="' + k + '">'
+          + '<span style="font-size:20px;">' + THEME_META[k].icon + '</span><span>' + THEME_META[k].label + '</span></button>'
+        ).join('') + '</div>'
+        + '</div>';
+
+      // Privacy & Security
+      html += '<div class="card">'
+        + '<div style="font-weight:800; font-size:15px; margin-bottom:6px;">🔐 Privacy &amp; Security</div>'
+        + '<div class="setting-row">'
+        + '<div><div class="setting-lbl">👁️ Privacy Blur</div><div class="setting-sub">Blurs habit, journal &amp; task text. Hold text to peek.</div></div>'
+        + '<button type="button" class="small-action-btn ' + (state.settings.privacyBlur ? 'accent' : '') + '" data-action="toggle-privacy">' + (state.settings.privacyBlur ? 'ON 🙈' : 'OFF 👁️') + '</button>'
+        + '</div>'
+        + '<div class="setting-row">'
+        + '<div><div class="setting-lbl">🔢 4-Digit PIN Lock</div><div class="setting-sub">' + (state.settings.pinEnabled ? 'Active (••••) — locks app on reopen' : 'Off — tap to set a 4-digit PIN') + '</div></div>'
+        + '<div class="row-gap">'
+        + '<button type="button" class="small-action-btn accent" data-action="open-pin-setup">' + (state.settings.pinEnabled ? 'Change' : 'Set PIN') + '</button>'
+        + (state.settings.pinEnabled ? '<button type="button" class="small-action-btn danger" data-action="request-delete-pin">Delete</button>' : '')
+        + '</div>'
+        + '</div>'
+        + (state.settings.pinEnabled ? '<div class="setting-row"><div><div class="setting-lbl">🔒 Test Lock Screen</div><div class="setting-sub">Lock Momentum right now</div></div><button type="button" class="small-action-btn" data-action="lock-now">Lock Now</button></div>' : '')
+        + '</div>';
+
+      // Schedule & Preferences
+      html += '<div class="card">'
+        + '<div style="font-weight:800; font-size:15px; margin-bottom:6px;">🌙 Preferences</div>'
+        + '<div class="setting-row">'
+        + '<div><div class="setting-lbl">Late-Night Day Cutoff</div><div class="setting-sub">Keep late-night habits counted for today</div></div>'
+        + '<select id="cutoffSelect" class="select-input" style="width:auto; padding:7px 10px;">'
+        + [0, 1, 2, 3, 4].map(hr =>
+          '<option value="' + hr + '" ' + (Number(state.settings.cutoffHour) === hr ? 'selected' : '') + '>' + (hr === 0 ? '12:00 AM' : hr + ':00 AM') + '</option>'
+        ).join('') + '</select>'
+        + '</div>'
+        + '<div class="setting-row">'
+        + '<div><div class="setting-lbl">Empty Challenge Banner</div><div class="setting-sub">Show reminder on Today when 0 challenges exist</div></div>'
+        + '<button type="button" class="small-action-btn ' + (state.settings.showEmptyChallengeBanner ? 'accent' : '') + '" data-action="toggle-empty-banner">' + (state.settings.showEmptyChallengeBanner ? 'Shown' : 'Hidden') + '</button>'
+        + '</div>'
+        + '</div>';
+
+      // Archived Habits
+      html += '<div class="card">'
+        + '<div style="font-weight:800; font-size:15px; margin-bottom:8px;">📦 Archived Habits (' + archived.length + ')</div>';
+      if (archived.length === 0) {
+        html += '<div class="small muted">No archived habits. Archive finished habits from their ⋮ menu to keep past stats intact.</div>';
+      } else {
+        html += archived.map(h =>
+          '<div class="setting-row">'
+          + '<div class="privacy-sensitive"><strong>' + esc(h.emoji + ' ' + h.name) + '</strong></div>'
+          + '<div class="row-gap">'
+          + '<button type="button" class="small-action-btn accent" data-action="unarchive-habit" data-id="' + esc(h.id) + '">Restore</button>'
+          + '<button type="button" class="small-action-btn danger" data-action="request-delete-habit" data-id="' + esc(h.id) + '">🗑️</button>'
+          + '</div>'
+          + '</div>'
+        ).join('');
+      }
+      html += '</div>';
+
+      // Backup & Restore
+      html += '<div class="card">'
+        + '<div style="font-weight:800; font-size:15px; margin-bottom:8px;">💾 Backup &amp; Data</div>'
+        + '<div class="row-gap" style="flex-wrap:wrap;">'
+        + '<button type="button" class="btn btn-primary" style="flex:1;" data-action="share-backup">📤 Share / Backup</button>'
+        + '<button type="button" class="btn btn-soft" style="flex:1;" data-action="download-backup">⬇️ Save JSON</button>'
+        + '</div>'
+        + '<div class="row-gap mt-8">'
+        + '<button type="button" class="btn btn-soft" style="flex:1;" data-action="trigger-import">📂 Restore JSON</button>'
+        + '<button type="button" class="btn btn-danger" style="flex:1;" data-action="request-reset-all">⚠️ Reset Data</button>'
+        + '</div>'
+        + '</div>';
+
+      return html;
+    }
+
+    function render(preserveScroll) {
+      try {
+        const y = preserveScroll ? window.scrollY : 0;
+        applyThemeAndPrivacy();
+
+        // Update nav active states
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.getAttribute('data-tab') === ui.tab);
+        });
+
+        // Header subtitle
+        const sub = document.getElementById('headerSub');
+        if (sub) {
+          const st = getDailyStats(ui.activeDate);
+          sub.textContent = st.total ? (st.pct + '% complete · ' + st.doneCount + '/' + st.total + ' habits') : 'Warm tactile habit companion';
+        }
+
+        // Show FAB on Today & Challenges only
+        const fab = document.getElementById('fabBtn');
+        if (fab) {
+          const showFab = (ui.tab === 'today' || ui.tab === 'challenges');
+          fab.classList.toggle('hidden', !showFab);
+        }
+
+        const view = document.getElementById('mainView');
+        if (ui.tab === 'today') view.innerHTML = renderTodayTab();
+        else if (ui.tab === 'challenges') view.innerHTML = renderChallengesTab();
+        else if (ui.tab === 'journal') view.innerHTML = renderJournalTab();
+        else if (ui.tab === 'insights') view.innerHTML = renderInsightsTab();
+        else if (ui.tab === 'settings') view.innerHTML = renderSettingsTab();
+
+        if (preserveScroll) {
+          window.scrollTo(0, y);
+        } else {
+          window.scrollTo(0, 0);
+        }
+      } catch (err) {
+        showError('Render error: ' + err.message);
+      }
+    }
+
+    /* =========================================================
+       7. MODALS, BOTTOM SHEETS & CONFIRMATION
+       ========================================================= */
+    function openSheet(title, bodyHtml, footHtml) {
+      document.getElementById('sheetTitle').textContent = title;
+      document.getElementById('sheetBody').innerHTML = bodyHtml;
+      document.getElementById('sheetFoot').innerHTML = footHtml;
+      document.getElementById('sheetOverlay').classList.add('open');
+    }
+
+    function closeSheet() {
+      document.getElementById('sheetOverlay').classList.remove('open');
+    }
+
+    function openConfirm(title, message, confirmLabel, onConfirm) {
+      confirmPending = onConfirm;
+      document.getElementById('confirmTitle').textContent = title;
+      document.getElementById('confirmMsg').textContent = message;
+      document.getElementById('confirmYesBtn').textContent = confirmLabel || 'Delete';
+      document.getElementById('confirmOverlay').classList.add('open');
+    }
+
+    function closeConfirm() {
+      confirmPending = null;
+      document.getElementById('confirmOverlay').classList.remove('open');
+    }
+
+    function openHabitEditor(habitId) {
+      const h = habitId ? state.habits.find(x => x.id === habitId) : null;
+      const emoji = h ? h.emoji : '💧';
+      const type = h ? h.type : 'binary';
+      const cat = h ? h.category : 'personal';
+
+      const body = '<input type="hidden" id="editHabitId" value="' + esc(h ? h.id : '') + '" />'
+        + '<input type="hidden" id="editHabitEmoji" value="' + esc(emoji) + '" />'
+        + '<div class="field"><label class="field-lbl">Habit Name</label>'
+        + '<input type="text" id="editHabitName" class="text-input" placeholder="e.g., Drink water, Read 20 pages..." value="' + esc(h ? h.name : '') + '" /></div>'
+        + '<div class="field"><label class="field-lbl">Icon</label><div class="emoji-grid">'
+        + HABIT_EMOJIS.map(em => '<button type="button" class="emoji-pick ' + (em === emoji ? 'active' : '') + '" data-action="pick-habit-emoji" data-val="' + em + '">' + em + '</button>').join('')
+        + '</div></div>'
+        + '<div class="field"><label class="field-lbl">Category (connects to Challenges!)</label>'
+        + '<select id="editHabitCat" class="select-input">'
+        + CATEGORIES.filter(c => c.id !== 'all').map(c => '<option value="' + c.id + '" ' + (c.id === cat ? 'selected' : '') + '>' + c.emoji + ' ' + c.label + '</option>').join('')
+        + '</select></div>'
+        + '<div class="field"><label class="field-lbl">Tracking Type</label>'
+        + '<select id="editHabitType" class="select-input">'
+        + '<option value="binary" ' + (type === 'binary' ? 'selected' : '') + '>✅ Yes / No Check-off</option>'
+        + '<option value="quant" ' + (type === 'quant' ? 'selected' : '') + '>🔢 Counter (Glasses, Pages, Reps)</option>'
+        + '<option value="timed" ' + (type === 'timed' ? 'selected' : '') + '>⏱️ Focus Timer (Minutes)</option>'
+        + '<option value="quit" ' + (type === 'quit' ? 'selected' : '') + '>🛡️ Quit / Stay Clean</option>'
+        + '</select></div>'
+        + '<div id="habitTargetRow" class="row-gap" style="display:' + ((type === 'quant' || type === 'timed') ? 'flex' : 'none') + '; margin-bottom:14px;">'
+        + '<div style="flex:1;"><label class="field-lbl">Daily Target</label><input type="number" id="editHabitTarget" class="text-input" min="1" max="999" value="' + (h ? h.target : 10) + '" /></div>'
+        + '<div style="flex:1;"><label class="field-lbl">Unit</label><input type="text" id="editHabitUnit" class="text-input" placeholder="min, pages..." value="' + esc(h ? h.unit : (type === 'timed' ? 'min' : '')) + '" /></div>'
+        + '</div>'
+        + (h ? '<button type="button" class="btn btn-danger btn-full mt-8" data-action="request-delete-habit" data-id="' + esc(h.id) + '">🗑️ Delete This Habit</button>' : '');
+
+      const foot = '<button type="button" class="btn btn-soft" style="flex:1;" data-action="close-sheet">Cancel</button>'
+        + '<button type="button" class="btn btn-primary" style="flex:2;" data-action="save-habit">💾 ' + (h ? 'Save Changes' : 'Add Habit') + '</button>';
+
+      openSheet(h ? '✏️ Edit Habit' : '✨ New Habit', body, foot);
+    }
+
+    function openHabitActions(habitId) {
+      const h = state.habits.find(x => x.id === habitId);
+      if (!h) return;
+      const log = getLog(ui.activeDate, h.id);
+
+      const body = '<div class="action-grid" style="margin-bottom:14px;">'
+        + '<button type="button" class="action-tile" data-action="habit-mark-status" data-id="' + esc(h.id) + '" data-status="min">🟡 Minimum Win</button>'
+        + '<button type="button" class="action-tile" data-action="habit-mark-status" data-id="' + esc(h.id) + '" data-status="freeze">❄️ Freeze Day</button>'
+        + '<button type="button" class="action-tile" data-action="open-habit-editor" data-id="' + esc(h.id) + '">✏️ Edit Habit</button>'
+        + '<button type="button" class="action-tile" data-action="move-habit" data-id="' + esc(h.id) + '" data-dir="-1">⬆️ Move Up</button>'
+        + '<button type="button" class="action-tile" data-action="move-habit" data-id="' + esc(h.id) + '" data-dir="1">⬇️ Move Down</button>'
+        + '<button type="button" class="action-tile" data-action="archive-habit" data-id="' + esc(h.id) + '">📦 Archive</button>'
+        + '</div>'
+        + '<div class="field"><label class="field-lbl">⏭️ Skip with Reason</label>'
+        + '<div class="chip-row">' + SKIP_REASONS.map(r =>
+          '<button type="button" class="filter-chip" data-action="skip-habit-reason" data-id="' + esc(h.id) + '" data-reason="' + esc(r) + '">' + esc(r) + '</button>'
+        ).join('') + '</div></div>'
+        + '<div class="field"><label class="field-lbl">📝 Quick Note for ' + ui.activeDate + '</label>'
+        + '<div class="row-gap"><input type="text" id="habitNoteInput" class="text-input" placeholder="Add a short note..." value="' + esc(log.note || '') + '" />'
+        + '<button type="button" class="btn btn-primary" style="padding:10px 14px;" data-action="save-habit-note" data-id="' + esc(h.id) + '">Save</button></div></div>'
+        + '<button type="button" class="btn btn-danger btn-full" data-action="request-delete-habit" data-id="' + esc(h.id) + '">🗑️ Delete Habit</button>';
+
+      const foot = '<button type="button" class="btn btn-soft btn-full" data-action="close-sheet">Close</button>';
+      openSheet(h.emoji + ' ' + h.name, body, foot);
+    }
+
+    function openTrackerEditor(trackerId) {
+      const t = trackerId ? state.trackers.find(x => x.id === trackerId) : null;
+      const emoji = t ? t.emoji : '🏆';
+      const days = t ? t.days : 30;
+      const startDate = t ? t.startDate : getEffectiveToday(state.settings.cutoffHour);
+      const syncMode = t ? t.syncMode : 'category';
+      const syncCat = t ? t.syncCategory : 'office';
+      const syncThresh = t ? t.syncThreshold : 70;
+      const pickedHabits = (t && Array.isArray(t.syncHabitIds)) ? t.syncHabitIds : [];
+
+      const activeHabits = getActiveHabits();
+      const body = '<input type="hidden" id="editTrackerId" value="' + esc(t ? t.id : '') + '" />'
+        + '<input type="hidden" id="editTrackerEmoji" value="' + esc(emoji) + '" />'
+        + '<div class="field"><label class="field-lbl">Challenge Name</label>'
+        + '<input type="text" id="editTrackerName" class="text-input" placeholder="e.g., 90-Day Office Mastery" value="' + esc(t ? t.name : '') + '" /></div>'
+        + '<div class="field"><label class="field-lbl">Icon</label><div class="emoji-grid">'
+        + CHALLENGE_EMOJIS.map(em => '<button type="button" class="emoji-pick ' + (em === emoji ? 'active' : '') + '" data-action="pick-tracker-emoji" data-val="' + em + '">' + em + '</button>').join('')
+        + '</div></div>'
+        + '<div class="field"><label class="field-lbl">Duration (Days: 1–1000)</label>'
+        + '<div class="chip-row" style="margin-bottom:8px;">'
+        + [7, 14, 21, 30, 60, 90, 100, 365].map(n =>
+          '<button type="button" class="filter-chip" data-action="set-tracker-days" data-val="' + n + '">' + n + 'd</button>'
+        ).join('') + '</div>'
+        + '<input type="number" id="editTrackerDays" class="text-input" min="1" max="1000" value="' + days + '" /></div>'
+        + '<div class="field"><label class="field-lbl">Start Date</label>'
+        + '<input type="date" id="editTrackerStart" class="text-input" value="' + startDate + '" /></div>'
+        + '<div class="field"><label class="field-lbl">🔗 Auto-Complete Day When...</label>'
+        + '<select id="editTrackerSyncMode" class="select-input">'
+        + '<option value="category" ' + (syncMode === 'category' ? 'selected' : '') + '>Habits in a Specific Category finish</option>'
+        + '<option value="all" ' + (syncMode === 'all' ? 'selected' : '') + '>All Daily Habits hit target %</option>'
+        + '<option value="habits" ' + (syncMode === 'habits' ? 'selected' : '') + '>Specific Selected Habits finish</option>'
+        + '<option value="manual" ' + (syncMode === 'manual' ? 'selected' : '') + '>Manual tap only</option>'
+        + '</select></div>'
+        + '<div id="trackerCatRow" class="field" style="display:' + (syncMode === 'category' ? 'block' : 'none') + ';">'
+        + '<label class="field-lbl">Linked Category</label>'
+        + '<select id="editTrackerSyncCat" class="select-input">'
+        + CATEGORIES.filter(c => c.id !== 'all').map(c => '<option value="' + c.id + '" ' + (c.id === syncCat ? 'selected' : '') + '>' + c.emoji + ' ' + c.label + '</option>').join('')
+        + '</select></div>'
+        + '<div id="trackerHabitsRow" class="field" style="display:' + (syncMode === 'habits' ? 'block' : 'none') + ';">'
+        + '<label class="field-lbl">Pick Linked Habits</label>'
+        + (activeHabits.length ? activeHabits.map(h =>
+          '<label style="display:flex; align-items:center; gap:8px; padding:6px 0; font-weight:600; font-size:13.5px;">'
+          + '<input type="checkbox" class="tracker-habit-chk" value="' + esc(h.id) + '" ' + (pickedHabits.includes(h.id) ? 'checked' : '') + ' />'
+          + '<span>' + esc(h.emoji + ' ' + h.name) + '</span></label>'
+        ).join('') : '<div class="small muted">Add habits first to link them here.</div>')
+        + '</div>'
+        + '<div id="trackerThreshRow" class="field" style="display:' + (syncMode !== 'manual' ? 'block' : 'none') + ';">'
+        + '<label class="field-lbl">Required Daily Completion % to Earn Day</label>'
+        + '<select id="editTrackerThreshold" class="select-input">'
+        + [50, 70, 80, 100].map(p => '<option value="' + p + '" ' + (syncThresh === p ? 'selected' : '') + '>' + p + '% or higher</option>').join('')
+        + '</select></div>'
+        + (t ? '<button type="button" class="btn btn-danger btn-full mt-8" data-action="request-delete-tracker" data-id="' + esc(t.id) + '">🗑️ Delete This Challenge</button>' : '');
+
+      const foot = '<button type="button" class="btn btn-soft" style="flex:1;" data-action="close-sheet">Cancel</button>'
+        + '<button type="button" class="btn btn-primary" style="flex:2;" data-action="save-tracker">💾 ' + (t ? 'Save Changes' : 'Create Challenge') + '</button>';
+
+      openSheet(t ? '✏️ Edit Challenge' : '🏆 New Challenge', body, foot);
+    }
+
+    function openRoutineEditor(routineId) {
+      const r = routineId ? state.routines.find(x => x.id === routineId) : null;
+      const stepsText = r ? r.steps.map(s => s.text).join('\n') : '';
+      const body = '<input type="hidden" id="editRoutineId" value="' + esc(r ? r.id : '') + '" />'
+        + '<div class="field"><label class="field-lbl">Routine Name</label>'
+        + '<input type="text" id="editRoutineName" class="text-input" placeholder="e.g., Night Wind-Down" value="' + esc(r ? r.name : '') + '" /></div>'
+        + '<div class="field"><label class="field-lbl">Emoji</label>'
+        + '<input type="text" id="editRoutineEmoji" class="text-input" value="' + esc(r ? r.emoji : '🔁') + '" maxlength="4" /></div>'
+        + '<div class="field"><label class="field-lbl">Steps (one per line)</label>'
+        + '<textarea id="editRoutineSteps" class="textarea-input" placeholder="Put phone away\nStretch 5 minutes\nRead 10 pages">' + esc(stepsText) + '</textarea></div>'
+        + (r ? '<button type="button" class="btn btn-danger btn-full" data-action="request-delete-routine" data-id="' + esc(r.id) + '">🗑️ Delete Routine</button>' : '');
+      const foot = '<button type="button" class="btn btn-soft" style="flex:1;" data-action="close-sheet">Cancel</button>'
+        + '<button type="button" class="btn btn-primary" style="flex:2;" data-action="save-routine">💾 Save Routine</button>';
+      openSheet(r ? '✏️ Edit Routine' : '🔁 New Routine', body, foot);
+    }
+
+    /* =========================================================
+       8. FOCUS TIMER & OFFLINE WEB AUDIO SOUNDSCAPES
+       ========================================================= */
+    function stopAmbientAudio() {
+      try {
+        if (timerState.noiseNode) { timerState.noiseNode.stop(); timerState.noiseNode.disconnect(); timerState.noiseNode = null; }
+        if (timerState.audioCtx) { timerState.audioCtx.close(); timerState.audioCtx = null; }
+      } catch (e) {}
+    }
+
+    function startAmbientAudio(kind) {
+      stopAmbientAudio();
+      if (kind === 'none') return;
+      try {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (!Ctx) return;
+        const ctx = new Ctx();
+        const bufSize = 2 * ctx.sampleRate;
+        const buffer = ctx.createBuffer(1, bufSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        let lastOut = 0;
+        for (let i = 0; i < bufSize; i++) {
+          const white = Math.random() * 2 - 1;
+          if (kind === 'brown') {
+            data[i] = (lastOut + (0.02 * white)) / 1.02;
+            lastOut = data[i];
+            data[i] *= 2.2;
+          } else {
+            data[i] = white * 0.28;
+          }
+        }
+        const src = ctx.createBufferSource();
+        src.buffer = buffer;
+        src.loop = true;
+
+        const filter = ctx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.value = kind === 'brown' ? 320 : 1200;
+
+        const gain = ctx.createGain();
+        gain.gain.value = 0.25;
+
+        src.connect(filter);
+        filter.connect(gain);
+        gain.connect(ctx.destination);
+        src.start();
+        timerState.audioCtx = ctx;
+        timerState.noiseNode = src;
+      } catch (e) {}
+    }
+
+    function playChime() {
+      try {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        if (!Ctx) return;
+        const ctx = new Ctx();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(528, ctx.currentTime);
+        gain.gain.setValueAtTime(0.3, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 1.4);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 1.4);
+      } catch (e) {}
+    }
+
+    function formatTimer(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return pad2(m) + ':' + pad2(s);
+    }
+
+    function renderTimerModal() {
+      const h = state.habits.find(x => x.id === timerState.habitId);
+      document.getElementById('timerTitle').textContent = h ? ('⏱️ ' + h.name) : '⏱️ Focus Timer';
+      document.getElementById('timerBody').innerHTML =
+        '<div class="timer-display" id="timerClock">' + formatTimer(timerState.remainSec) + '</div>'
+        + '<div class="small muted" style="text-align:center; margin-bottom:14px;">Offline Ambient Sound</div>'
+        + '<div class="row-gap" style="justify-content:center; margin-bottom:16px;">'
+        + [{ id: 'none', lbl: '🔇 Silent' }, { id: 'brown', lbl: '🌊 Brown Noise' }, { id: 'rain', lbl: '🌧️ Soft Rain' }].map(s =>
+          '<button type="button" class="filter-chip ' + (timerState.sound === s.id ? 'active' : '') + '" data-action="timer-set-sound" data-sound="' + s.id + '">' + s.lbl + '</button>'
+        ).join('') + '</div>';
+
+      document.getElementById('timerFoot').innerHTML =
+        '<button type="button" class="btn btn-soft" style="flex:1;" data-action="timer-toggle">' + (timerState.running ? '⏸️ Pause' : '▶️ Start') + '</button>'
+        + '<button type="button" class="btn btn-success" style="flex:1;" data-action="timer-complete">✅ Mark Done</button>';
+    }
+
+    function closeTimerModal() {
+      if (timerState.interval) { clearInterval(timerState.interval); timerState.interval = null; }
+      timerState.running = false;
+      stopAmbientAudio();
+      document.getElementById('timerOverlay').classList.remove('open');
+    }
+
+    /* =========================================================
+       9. PIN LOCK & SETUP SYSTEM
+       ========================================================= */
+    function renderPinDots(containerId, count) {
+      const el = document.getElementById(containerId);
+      if (!el) return;
+      el.innerHTML = [0, 1, 2, 3].map(i => '<div class="pin-dot ' + (i < count ? 'filled' : '') + '"></div>').join('');
+    }
+
+    function openPinLock() {
+      pinLockBuf = '';
+      document.getElementById('pinLockMsg').textContent = 'Enter your 4-digit PIN';
+      renderPinDots('pinLockDots', 0);
+      document.getElementById('pinLockOverlay').classList.add('open');
+    }
+
+    function openPinSetup() {
+      pinSetup = { step: 1, first: '', buf: '' };
+      document.getElementById('pinSetupTitle').textContent = state.settings.pinEnabled ? '🔐 Change PIN' : '🔐 Set 4-Digit PIN';
+      document.getElementById('pinSetupMsg').textContent = 'Enter a new 4-digit PIN';
+      document.getElementById('pinSetupDeleteBtn').style.display = state.settings.pinEnabled ? 'inline-flex' : 'none';
+      renderPinDots('pinSetupDots', 0);
+      document.getElementById('pinSetupOverlay').classList.add('open');
+    }
+
+    function closePinSetup() {
+      document.getElementById('pinSetupOverlay').classList.remove('open');
+    }
+
+    /* =========================================================
+       10. MILESTONE PNG GENERATOR & BACKUPS
+       ========================================================= */
+    function generateMilestonePNG() {
+      const today = getEffectiveToday(state.settings.cutoffHour);
+      const st = getDailyStats(today);
+      const bestStreak = getActiveHabits().reduce((mx, h) => Math.max(mx, getHabitStreak(h)), 0);
+      const trk = state.trackers.find(t => t.id === state.activeTrackerId) || state.trackers[0];
+
+      const canvas = document.createElement('canvas');
+      canvas.width = 1080;
+      canvas.height = 1080;
+      const ctx = canvas.getContext('2d');
+
+      // Warm gradient backdrop
+      const grad = ctx.createLinearGradient(0, 0, 1080, 1080);
+      grad.addColorStop(0, '#FAF6F0');
+      grad.addColorStop(1, '#F2E3D0');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 1080, 1080);
+
+      // Card container
+      ctx.fillStyle = '#FFFFFF';
+      ctx.beginPath();
+      ctx.roundRect(90, 110, 900, 860, 48);
+      ctx.fill();
+
+      // Accent top bar
+      const agrad = ctx.createLinearGradient(90, 110, 990, 110);
+      agrad.addColorStop(0, '#F48442');
+      agrad.addColorStop(1, '#D94E2A');
+      ctx.fillStyle = agrad;
+      ctx.beginPath();
+      ctx.roundRect(90, 110, 900, 180, [48, 48, 0, 0]);
+      ctx.fill();
+
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = 'bold 54px -apple-system, sans-serif';
+      ctx.fillText('⚡ Momentum', 150, 215);
+      ctx.font = '600 28px -apple-system, sans-serif';
+      ctx.fillText(friendlyDate(today, today), 150, 260);
+
+      // Main Score
+      ctx.fillStyle = '#1F1A17';
+      ctx.font = '900 130px -apple-system, sans-serif';
+      ctx.fillText(st.pct + '%', 150, 470);
+      ctx.fillStyle = '#5D534C';
+      ctx.font = '700 34px -apple-system, sans-serif';
+      ctx.fillText('Daily Habit Score (' + st.doneCount + '/' + st.total + ' completed)', 150, 530);
+
+      // Streak & Challenge
+      ctx.fillStyle = '#E86A33';
+      ctx.font = '800 44px -apple-system, sans-serif';
+      ctx.fillText('🔥 Best Streak: ' + bestStreak + ' Days', 150, 650);
+
+      if (trk) {
+        const sum = getTrackerSummary(trk);
+        ctx.fillStyle = '#1F1A17';
+        ctx.font = '700 34px -apple-system, sans-serif';
+        ctx.fillText('🏆 ' + trk.name + ': ' + sum.completed + '/' + trk.days + ' days (' + sum.pct + '%)', 150, 735);
+      }
+
+      ctx.fillStyle = '#8D8177';
+      ctx.font = '600 26px -apple-system, sans-serif';
+      ctx.fillText('Built one consistent day at a time.', 150, 895);
+
+      canvas.toBlob(blob => {
+        if (!blob) return;
+        const file = new File([blob], 'momentum-milestone-' + today + '.png', { type: 'image/png' });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          navigator.share({ files: [file], title: 'My Momentum Progress' }).catch(() => downloadBlob(blob, file.name));
+        } else {
+          downloadBlob(blob, file.name);
+        }
+        toast('🎨 Milestone card ready!');
+      }, 'image/png');
+    }
+
+    function downloadBlob(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    /* =========================================================
+       11. TOAST & ERROR HELPERS
+       ========================================================= */
+    let toastTimer = null;
+    function toast(msg) {
+      const el = document.getElementById('toast');
+      if (!el) return;
+      el.textContent = msg;
+      el.classList.add('show');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.remove('show'), 2400);
+    }
+
+    function showError(msg) {
+      const b = document.getElementById('errorBanner');
+      const m = document.getElementById('errorBannerMsg');
+      if (b && m) { m.textContent = msg; b.classList.add('show'); }
+    }
+
+    /* =========================================================
+       12. CENTRAL AUDITED ACTION DISPATCHER
+       ========================================================= */
+    const ACTIONS = {
+      'dismiss-error': () => {
+        document.getElementById('errorBanner').classList.remove('show');
+      },
+
+      'go-tab': (el) => {
+        const tab = el.getAttribute('data-tab');
+        if (!tab) return;
+        ui.tab = tab;
+        if (tab === 'journal') syncJournalDraft(false);
+        render(false);
+      },
+
+      'fab-click': () => {
+        if (document.getElementById('sheetOverlay').classList.contains('open')) {
+          closeSheet();
+          return;
+        }
+        if (ui.tab === 'challenges') openTrackerEditor(null);
+        else openHabitEditor(null);
+      },
+
+      'toggle-privacy': () => {
+        state.settings.privacyBlur = !state.settings.privacyBlur;
+        saveState();
+        applyThemeAndPrivacy();
+        if (ui.tab === 'settings') render(true);
+        toast(state.settings.privacyBlur ? '🙈 Privacy blur ON (hold text to peek)' : '👁️ Privacy blur OFF');
+      },
+
+      'cycle-theme': () => {
+        const order = ['sunlit', 'twilight', 'midnight'];
+        const idx = order.indexOf(state.settings.theme);
+        state.settings.theme = order[(idx + 1) % order.length];
+        saveState();
+        applyThemeAndPrivacy();
+        if (ui.tab === 'settings') render(true);
+        toast(THEME_META[state.settings.theme].icon + ' ' + THEME_META[state.settings.theme].label);
+      },
+
+      'set-theme': (el) => {
+        const val = el.getAttribute('data-theme-val');
+        if (!THEME_META[val]) return;
+        state.settings.theme = val;
+        saveState();
+        render(true);
+        toast(THEME_META[val].icon + ' ' + THEME_META[val].label);
+      },
+
+      'shift-date': (el) => {
+        const delta = Number(el.getAttribute('data-delta')) || 0;
+        ui.activeDate = addDays(ui.activeDate, delta);
+        syncJournalDraft(true);
+        render(true);
+      },
+
+      'select-date': (el) => {
+        const d = el.getAttribute('data-date');
+        if (!d) return;
+        ui.activeDate = d;
+        syncJournalDraft(true);
+        render(true);
+      },
+
+      'jump-today': () => {
+        ui.activeDate = getEffectiveToday(state.settings.cutoffHour);
+        syncJournalDraft(true);
+        render(true);
+      },
+
+      'set-category': (el) => {
+        ui.category = el.getAttribute('data-cat') || 'all';
+        render(true);
+      },
+
+      'toggle-completed-drawer': () => {
+        ui.completedOpen = !ui.completedOpen;
+        render(true);
+      },
+
+      // ---- HABITS ----
+      'toggle-habit': (el) => {
+        const id = el.getAttribute('data-id');
+        const log = getLog(ui.activeDate, id);
+        const next = (log.status === 'done') ? 'none' : 'done';
+        setLog(ui.activeDate, id, { status: next, value: next === 'done' ? 1 : 0 });
+        vibrate(14);
+        render(true);
+        if (next === 'done') {
+          const st = getDailyStats(ui.activeDate);
+          if (st.pct >= 100) toast('👑 100% Daily Momentum! Amazing work!');
+        }
+      },
+
+      'step-habit': (el) => {
+        const id = el.getAttribute('data-id');
+        const delta = Number(el.getAttribute('data-delta')) || 0;
+        const h = state.habits.find(x => x.id === id);
+        if (!h) return;
+        const log = getLog(ui.activeDate, id);
+        const nextVal = Math.max(0, (Number(log.value) || 0) + delta);
+        const nextStatus = nextVal >= h.target ? 'done' : 'none';
+        setLog(ui.activeDate, id, { value: nextVal, status: nextStatus });
+        vibrate(10);
+        render(true);
+      },
+
+      'open-habit-editor': (el) => {
+        openHabitEditor(el.getAttribute('data-id') || null);
+      },
+
+      'pick-habit-emoji': (el) => {
+        const val = el.getAttribute('data-val');
+        document.getElementById('editHabitEmoji').value = val;
+        document.querySelectorAll('[data-action="pick-habit-emoji"]').forEach(b => b.classList.toggle('active', b === el));
+      },
+
+      'save-habit': () => {
+        const id = document.getElementById('editHabitId').value;
+        const name = (document.getElementById('editHabitName').value || '').trim();
+        if (!name) { toast('⚠️ Please enter a habit name'); return; }
+        const emoji = document.getElementById('editHabitEmoji').value || '✨';
+        const category = document.getElementById('editHabitCat').value || 'personal';
+        const type = document.getElementById('editHabitType').value || 'binary';
+        const target = Math.max(1, Number(document.getElementById('editHabitTarget').value) || 1);
+        const unit = (document.getElementById('editHabitUnit').value || '').trim();
+
+        if (id) {
+          const idx = state.habits.findIndex(x => x.id === id);
+          if (idx >= 0) {
+            state.habits[idx] = Object.assign({}, state.habits[idx], { name, emoji, category, type, target, unit });
+          }
+          toast('✅ Habit updated');
+        } else {
+          state.habits.push({ id: uid('hab'), name, emoji, category, type, target, unit, archived: false });
+          toast('✨ Habit added!');
+        }
+        saveState();
+        closeSheet();
+        render(true);
+      },
+
+      'open-habit-actions': (el) => {
+        openHabitActions(el.getAttribute('data-id'));
+      },
+
+      'habit-mark-status': (el) => {
+        const id = el.getAttribute('data-id');
+        const st = el.getAttribute('data-status');
+        setLog(ui.activeDate, id, { status: st });
+        closeSheet();
+        render(true);
+        toast(st === 'min' ? '🟡 Logged Minimum Win!' : '❄️ Day Frozen — streak safe');
+      },
+
+      'skip-habit-reason': (el) => {
+        const id = el.getAttribute('data-id');
+        const reason = el.getAttribute('data-reason') || '';
+        setLog(ui.activeDate, id, { status: 'skip', skipReason: reason });
+        closeSheet();
+        render(true);
+        toast('⏭️ Marked skipped');
+      },
+
+      'save-habit-note': (el) => {
+        const id = el.getAttribute('data-id');
+        const inp = document.getElementById('habitNoteInput');
+        setLog(ui.activeDate, id, { note: (inp ? inp.value : '').trim() });
+        closeSheet();
+        render(true);
+        toast('📝 Note saved');
+      },
+
+      'move-habit': (el) => {
+        const id = el.getAttribute('data-id');
+        const dir = Number(el.getAttribute('data-dir')) || 0;
+        const idx = state.habits.findIndex(x => x.id === id);
+        const targetIdx = idx + dir;
+        if (idx >= 0 && targetIdx >= 0 && targetIdx < state.habits.length) {
+          const tmp = state.habits[idx];
+          state.habits[idx] = state.habits[targetIdx];
+          state.habits[targetIdx] = tmp;
+          saveState();
+          closeSheet();
+          render(true);
+        }
+      },
+
+      'archive-habit': (el) => {
+        const h = state.habits.find(x => x.id === el.getAttribute('data-id'));
+        if (!h) return;
+        h.archived = true;
+        saveState();
+        closeSheet();
+        render(true);
+        toast('📦 Habit archived');
+      },
+
+      'unarchive-habit': (el) => {
+        const h = state.habits.find(x => x.id === el.getAttribute('data-id'));
+        if (!h) return;
+        h.archived = false;
+        saveState();
+        render(true);
+        toast('✨ Habit restored');
+      },
+
+      'request-delete-habit': (el) => {
+        const id = el.getAttribute('data-id');
+        const h = state.habits.find(x => x.id === id);
+        if (!h) return;
+        openConfirm('Delete Habit?', 'Remove "' + h.name + '" permanently? This cannot be undone.', 'Delete Habit', () => {
+          state.habits = state.habits.filter(x => x.id !== id);
+          saveState();
+          closeSheet();
+          render(true);
+          toast('🗑️ Habit deleted');
+        });
+      },
+
+      // ---- FOCUS TIMER ----
+      'open-timer': (el) => {
+        const id = el.getAttribute('data-id');
+        const h = state.habits.find(x => x.id === id);
+        if (!h) return;
+        timerState.habitId = h.id;
+        timerState.totalSec = Math.max(1, h.target) * 60;
+        timerState.remainSec = timerState.totalSec;
+        timerState.running = false;
+        if (timerState.interval) { clearInterval(timerState.interval); timerState.interval = null; }
+        renderTimerModal();
+        document.getElementById('timerOverlay').classList.add('open');
+      },
+
+      'timer-set-sound': (el) => {
+        timerState.sound = el.getAttribute('data-sound') || 'none';
+        if (timerState.running) startAmbientAudio(timerState.sound);
+        renderTimerModal();
+      },
+
+      'timer-toggle': () => {
+        if (timerState.running) {
+          clearInterval(timerState.interval);
+          timerState.interval = null;
+          timerState.running = false;
+          stopAmbientAudio();
+        } else {
+          timerState.running = true;
+          startAmbientAudio(timerState.sound);
+          timerState.interval = setInterval(() => {
+            timerState.remainSec = Math.max(0, timerState.remainSec - 1);
+            const clk = document.getElementById('timerClock');
+            if (clk) clk.textContent = formatTimer(timerState.remainSec);
+            if (timerState.remainSec === 0) {
+              playChime();
+              vibrate(120);
+              ACTIONS['timer-complete']();
+            }
+          }, 1000);
+        }
+        renderTimerModal();
+      },
+
+      'timer-complete': () => {
+        const h = state.habits.find(x => x.id === timerState.habitId);
+        if (h) {
+          setLog(ui.activeDate, h.id, { status: 'done', value: h.target });
+        }
+        closeTimerModal();
+        render(true);
+        toast('⏱️ Focus session completed!');
+      },
+
+      'close-timer': () => closeTimerModal(),
+      'close-timer-backdrop': (el, e) => { if (e.target === el) closeTimerModal(); },
+
+      // ---- CHALLENGES / TRACKERS ----
+      'select-active-tracker': (el) => {
+        const id = el.getAttribute('data-id');
+        if (state.trackers.some(t => t.id === id)) {
+          state.activeTrackerId = id;
+          saveState();
+          render(true);
+        }
+      },
+
+      'open-tracker-editor': (el) => {
+        openTrackerEditor(el.getAttribute('data-id') || null);
+      },
+
+      'pick-tracker-emoji': (el) => {
+        const val = el.getAttribute('data-val');
+        document.getElementById('editTrackerEmoji').value = val;
+        document.querySelectorAll('[data-action="pick-tracker-emoji"]').forEach(b => b.classList.toggle('active', b === el));
+      },
+
+      'set-tracker-days': (el) => {
+        document.getElementById('editTrackerDays').value = el.getAttribute('data-val');
+      },
+
+      'save-tracker': () => {
+        const id = document.getElementById('editTrackerId').value;
+        const name = (document.getElementById('editTrackerName').value || '').trim();
+        if (!name) { toast('⚠️ Enter a challenge name'); return; }
+        const emoji = document.getElementById('editTrackerEmoji').value || '🏆';
+        const days = Math.min(1000, Math.max(1, Number(document.getElementById('editTrackerDays').value) || 30));
+        const startDate = document.getElementById('editTrackerStart').value || getEffectiveToday(state.settings.cutoffHour);
+        const syncMode = document.getElementById('editTrackerSyncMode').value || 'all';
+        const syncCategory = document.getElementById('editTrackerSyncCat').value || 'office';
+        const syncThreshold = Number(document.getElementById('editTrackerThreshold').value) || 70;
+        const syncHabitIds = Array.from(document.querySelectorAll('.tracker-habit-chk:checked')).map(c => c.value);
+
+        if (id) {
+          const idx = state.trackers.findIndex(t => t.id === id);
+          if (idx >= 0) {
+            state.trackers[idx] = Object.assign({}, state.trackers[idx], {
+              name, emoji, days, startDate, syncMode, syncCategory, syncThreshold, syncHabitIds
+            });
+          }
+          toast('✅ Challenge updated');
+        } else {
+          const newId = uid('trk');
+          state.trackers.push({
+            id: newId, name, emoji, days, startDate, syncMode, syncCategory, syncThreshold, syncHabitIds, overrides: {}
+          });
+          state.activeTrackerId = newId;
+          toast('🏆 Challenge created!');
+        }
+        saveState();
+        closeSheet();
+        render(true);
+      },
+
+      'request-delete-tracker': (el) => {
+        const id = el.getAttribute('data-id');
+        const trk = state.trackers.find(t => t.id === id);
+        if (!trk) return;
+        openConfirm('Delete Challenge?', 'Permanently delete "' + trk.name + '"? Your daily habits will stay safe.', 'Delete Challenge', () => {
+          state.trackers = state.trackers.filter(t => t.id !== id);
+          state.activeTrackerId = state.trackers.length > 0 ? state.trackers[0].id : null;
+          saveState();
+          closeSheet();
+          render(true);
+          toast('🗑️ Challenge deleted');
+        });
+      },
+
+      'toggle-tracker-tile': (el) => {
+        const id = el.getAttribute('data-id');
+        const dateStr = el.getAttribute('data-date');
+        const trk = state.trackers.find(t => t.id === id);
+        if (!trk || !dateStr) return;
+        if (!trk.overrides) trk.overrides = {};
+        const cur = evaluateTrackerDay(trk, dateStr);
+        if (cur === 'done') {
+          trk.overrides[dateStr] = 'missed';
+        } else {
+          trk.overrides[dateStr] = 'done';
+        }
+        saveState();
+        vibrate(10);
+        render(true);
+      },
+
+      // ---- ROUTINES ----
+      'toggle-routine-open': (el) => {
+        const id = el.getAttribute('data-id');
+        ui.expandedRoutines[id] = (ui.expandedRoutines[id] === false);
+        render(true);
+      },
+
+      'toggle-routine-step': (el) => {
+        const rid = el.getAttribute('data-rid');
+        const sid = el.getAttribute('data-sid');
+        const d = ui.activeDate;
+        if (!state.routineLogs[d]) state.routineLogs[d] = {};
+        if (!state.routineLogs[d][rid]) state.routineLogs[d][rid] = {};
+        state.routineLogs[d][rid][sid] = !state.routineLogs[d][rid][sid];
+        saveState();
+        vibrate(10);
+        render(true);
+      },
+
+      'open-routine-editor': (el) => {
+        openRoutineEditor(el.getAttribute('data-id') || null);
+      },
+
+      'save-routine': () => {
+        const id = document.getElementById('editRoutineId').value;
+        const name = (document.getElementById('editRoutineName').value || '').trim();
+        if (!name) { toast('⚠️ Enter a routine name'); return; }
+        const emoji = (document.getElementById('editRoutineEmoji').value || '🔁').trim();
+        const rawLines = (document.getElementById('editRoutineSteps').value || '').split('\n').map(s => s.trim()).filter(Boolean);
+        const steps = rawLines.map(txt => ({ id: uid('st'), text: txt }));
+        if (id) {
+          const idx = state.routines.findIndex(r => r.id === id);
+          if (idx >= 0) state.routines[idx] = { id, name, emoji, steps };
+          toast('✅ Routine updated');
+        } else {
+          state.routines.push({ id: uid('rtn'), name, emoji, steps });
+          toast('🔁 Routine added');
+        }
+        saveState();
+        closeSheet();
+        render(true);
+      },
+
+      'request-delete-routine': (el) => {
+        const id = el.getAttribute('data-id');
+        const r = state.routines.find(x => x.id === id);
+        if (!r) return;
+        openConfirm('Delete Routine?', 'Delete "' + r.name + '"?', 'Delete', () => {
+          state.routines = state.routines.filter(x => x.id !== id);
+          saveState();
+          closeSheet();
+          render(true);
+          toast('🗑️ Routine deleted');
+        });
+      },
+
+      // ---- DAILY TASKS ----
+      'add-todo': () => {
+        const inp = document.getElementById('quickTodoInput');
+        const text = (inp ? inp.value : '').trim();
+        if (!text) { toast('✏️ Type a task first'); return; }
+        const d = ui.activeDate;
+        if (!Array.isArray(state.todos[d])) state.todos[d] = [];
+        state.todos[d].push({ id: uid('td'), text, done: false });
+        saveState();
+        vibrate(10);
+        render(true);
+      },
+
+      'quick-add-todo': (el) => {
+        const text = el.getAttribute('data-text');
+        if (!text) return;
+        const d = ui.activeDate;
+        if (!Array.isArray(state.todos[d])) state.todos[d] = [];
+        state.todos[d].push({ id: uid('td'), text, done: false });
+        saveState();
+        vibrate(10);
+        render(true);
+        toast('📝 Task added');
+      },
+
+      'toggle-todo': (el) => {
+        const id = el.getAttribute('data-id');
+        const list = state.todos[ui.activeDate] || [];
+        const item = list.find(t => t.id === id);
+        if (!item) return;
+        item.done = !item.done;
+        saveState();
+        vibrate(10);
+        render(true);
+      },
+
+      'delete-todo': (el) => {
+        const id = el.getAttribute('data-id');
+        const d = ui.activeDate;
+        state.todos[d] = (state.todos[d] || []).filter(t => t.id !== id);
+        saveState();
+        render(true);
+      },
+
+      // ---- JOURNAL (100% RELIABLE) ----
+      'pick-journal-mood': (el) => {
+        const mood = el.getAttribute('data-mood') || 'good';
+        ui.journalDraftMood = mood;
+        ui.journalDirty = true;
+        document.querySelectorAll('.mood-btn').forEach(b => b.classList.toggle('selected', b.getAttribute('data-mood') === mood));
+        const badge = document.getElementById('journalStatusBadge');
+        if (badge) { badge.className = 'mini-pill amber'; badge.textContent = '● Unsaved'; }
+      },
+
+      'insert-journal-prompt': (el) => {
+        const prompt = el.getAttribute('data-prompt') || '';
+        const ta = document.getElementById('journalTextInput');
+        if (!ta) return;
+        const prefix = ta.value.trim() ? ta.value.trimEnd() + '\n' : '';
+        ta.value = prefix + prompt;
+        ui.journalDraftText = ta.value;
+        ui.journalDirty = true;
+        ta.focus();
+        const badge = document.getElementById('journalStatusBadge');
+        if (badge) { badge.className = 'mini-pill amber'; badge.textContent = '● Unsaved'; }
+      },
+
+      'save-journal': () => {
+        const ta = document.getElementById('journalTextInput');
+        const text = (ta ? ta.value : ui.journalDraftText || '').trim();
+        const mood = ui.journalDraftMood || 'good';
+        state.journals[ui.activeDate] = {
+          mood: mood,
+          text: text,
+          updatedAt: Date.now()
+        };
+        ui.journalDraftText = text;
+        ui.journalDirty = false;
+        saveState();
+        vibrate(14);
+        render(true);
+        toast('📖 Journal saved!');
+      },
+
+      'edit-journal-entry': (el) => {
+        const dk = el.getAttribute('data-date');
+        if (!dk) return;
+        ui.activeDate = dk;
+        syncJournalDraft(true);
+        render(false);
+        setTimeout(() => {
+          const ta = document.getElementById('journalTextInput');
+          if (ta) ta.focus();
+        }, 60);
+      },
+
+      'request-delete-journal': (el) => {
+        const dk = el.getAttribute('data-date');
+        if (!dk || !state.journals[dk]) return;
+        openConfirm('Delete Journal Entry?', 'Permanently delete your journal reflection for ' + dk + '?', 'Delete Entry', () => {
+          delete state.journals[dk];
+          saveState();
+          if (ui.activeDate === dk) syncJournalDraft(true);
+          render(true);
+          toast('🗑️ Journal entry deleted');
+        });
+      },
+
+      'filter-journal-mood': (el) => {
+        ui.journalMoodFilter = el.getAttribute('data-mood') || 'all';
+        render(true);
+      },
+
+      'clear-journal-filters': () => {
+        ui.journalMoodFilter = 'all';
+        ui.journalSearch = '';
+        render(true);
+      },
+
+      // ---- INSIGHTS ----
+      'generate-milestone': () => generateMilestonePNG(),
+
+      // ---- SETTINGS, PIN & BACKUPS ----
+      'trigger-pwa-install': () => {
+        if (!ui.deferredInstallPrompt) {
+          toast('Tap Chrome ⋮ → Add to Home screen → Install');
+          return;
+        }
+        ui.deferredInstallPrompt.prompt();
+        ui.deferredInstallPrompt.userChoice.then(choice => {
+          if (choice && choice.outcome === 'accepted') toast('🎉 Installing Momentum!');
+          ui.deferredInstallPrompt = null;
+          render(true);
+        });
+      },
+
+      'toggle-empty-banner': () => {
+        state.settings.showEmptyChallengeBanner = !state.settings.showEmptyChallengeBanner;
+        saveState();
+        render(true);
+      },
+
+      'open-pin-setup': () => openPinSetup(),
+      'close-pin-setup': () => closePinSetup(),
+      'close-pin-setup-backdrop': (el, e) => { if (e.target === el) closePinSetup(); },
+      'lock-now': () => openPinLock(),
+
+      'pin-setup-digit': (el) => {
+        if (pinSetup.buf.length >= 4) return;
+        pinSetup.buf += el.getAttribute('data-val');
+        renderPinDots('pinSetupDots', pinSetup.buf.length);
+        if (pinSetup.buf.length === 4) {
+          if (pinSetup.step === 1) {
+            pinSetup.first = pinSetup.buf;
+            pinSetup.buf = '';
+            pinSetup.step = 2;
+            document.getElementById('pinSetupMsg').textContent = 'Confirm your 4-digit PIN';
+            renderPinDots('pinSetupDots', 0);
+          } else {
+            if (pinSetup.buf === pinSetup.first) {
+              state.settings.pin = pinSetup.buf;
+              state.settings.pinEnabled = true;
+              saveState();
+              closePinSetup();
+              render(true);
+              toast('🔐 4-digit PIN saved!');
+            } else {
+              const card = document.getElementById('pinSetupCard');
+              card.classList.remove('shake');
+              void card.offsetWidth;
+              card.classList.add('shake');
+              pinSetup = { step: 1, first: '', buf: '' };
+              document.getElementById('pinSetupMsg').textContent = 'PINs did not match — try again';
+              renderPinDots('pinSetupDots', 0);
+            }
+          }
+        }
+      },
+
+      'pin-setup-back': () => {
+        pinSetup.buf = pinSetup.buf.slice(0, -1);
+        renderPinDots('pinSetupDots', pinSetup.buf.length);
+      },
+
+      'pin-setup-clear': () => {
+        pinSetup.buf = '';
+        renderPinDots('pinSetupDots', 0);
+      },
+
+      'pin-lock-digit': (el) => {
+        if (pinLockBuf.length >= 4) return;
+        pinLockBuf += el.getAttribute('data-val');
+        renderPinDots('pinLockDots', pinLockBuf.length);
+        if (pinLockBuf.length === 4) {
+          if (pinLockBuf === state.settings.pin) {
+            document.getElementById('pinLockOverlay').classList.remove('open');
+            pinLockBuf = '';
+          } else {
+            const card = document.getElementById('pinLockCard');
+            card.classList.remove('shake');
+            void card.offsetWidth;
+            card.classList.add('shake');
+            pinLockBuf = '';
+            document.getElementById('pinLockMsg').textContent = 'Incorrect PIN — try again';
+            renderPinDots('pinLockDots', 0);
+          }
+        }
+      },
+
+      'pin-lock-back': () => {
+        pinLockBuf = pinLockBuf.slice(0, -1);
+        renderPinDots('pinLockDots', pinLockBuf.length);
+      },
+
+      'pin-lock-clear': () => {
+        pinLockBuf = '';
+        renderPinDots('pinLockDots', 0);
+      },
+
+      'request-delete-pin': () => {
+        openConfirm('Remove PIN Lock?', 'Turn off the 4-digit PIN lock? All your habits, challenges, and journals stay completely safe.', 'Remove PIN', () => {
+          state.settings.pinEnabled = false;
+          state.settings.pin = '';
+          saveState();
+          document.getElementById('pinLockOverlay').classList.remove('open');
+          closePinSetup();
+          render(true);
+          toast('🔓 PIN lock removed');
+        });
+      },
+
+      'download-backup': () => {
+        const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+        downloadBlob(blob, 'momentum-backup-' + getEffectiveToday(state.settings.cutoffHour) + '.json');
+        toast('💾 Backup downloaded!');
+      },
+
+      'share-backup': () => {
+        const fname = 'momentum-backup-' + getEffectiveToday(state.settings.cutoffHour) + '.json';
+        const blob = new Blob([JSON.stringify(state, null, 2)], { type: 'application/json' });
+        const file = new File([blob], fname, { type: 'application/json' });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          navigator.share({ files: [file], title: 'Momentum Backup' }).catch(() => downloadBlob(blob, fname));
+        } else {
+          downloadBlob(blob, fname);
+        }
+        toast('📤 Backup ready!');
+      },
+
+      'trigger-import': () => {
+        const inp = document.getElementById('importFileInput');
+        if (inp) { inp.value = ''; inp.click(); }
+      },
+
+      'request-reset-all': () => {
+        openConfirm('Reset All App Data?', 'This clears all habits, challenges, logs, and journals on this device. Export a backup first if needed.', 'Reset Everything', () => {
+          localStorage.removeItem(STORAGE_KEY);
+          state = createDefaultState();
+          saveState();
+          ui.activeDate = getEffectiveToday(0);
+          syncJournalDraft(true);
+          render(false);
+          toast('🔄 App reset to fresh start');
+        });
+      },
+
+      // ---- SHEET & CONFIRM CONTROLS ----
+      'close-sheet': () => closeSheet(),
+      'close-sheet-backdrop': (el, e) => { if (e.target === el) closeSheet(); },
+      'confirm-no': () => closeConfirm(),
+      'confirm-no-backdrop': (el, e) => { if (e.target === el) closeConfirm(); },
+      'confirm-yes': () => {
+        const fn = confirmPending;
+        closeConfirm();
+        if (typeof fn === 'function') fn();
+      }
+    };
+
+    /* =========================================================
+       13. GLOBAL EVENT LISTENERS & PWA REGISTRATION
+       ========================================================= */
+    function init() {
+      // 1. Primary delegated click listener (bound FIRST so UI never freezes)
+      document.addEventListener('click', (e) => {
+        try {
+          const target = e.target.closest('[data-action]');
+          if (!target) return;
+          const action = target.getAttribute('data-action');
+          const handler = ACTIONS[action];
+          if (typeof handler === 'function') {
+            handler(target, e);
+          }
+        } catch (err) {
+          showError('Action error: ' + err.message);
+        }
+      });
+
+      // 2. Delegated change listener (date picker, dropdowns, import file)
+      document.addEventListener('change', (e) => {
+        try {
+          const el = e.target;
+          if (!el) return;
+          if (el.id === 'nativeDatePicker' && el.value) {
+            ui.activeDate = el.value;
+            syncJournalDraft(true);
+            render(true);
+          } else if (el.id === 'editHabitType') {
+            const row = document.getElementById('habitTargetRow');
+            if (row) row.style.display = (el.value === 'quant' || el.value === 'timed') ? 'flex' : 'none';
+          } else if (el.id === 'editTrackerSyncMode') {
+            const catRow = document.getElementById('trackerCatRow');
+            const habRow = document.getElementById('trackerHabitsRow');
+            const thrRow = document.getElementById('trackerThreshRow');
+            if (catRow) catRow.style.display = el.value === 'category' ? 'block' : 'none';
+            if (habRow) habRow.style.display = el.value === 'habits' ? 'block' : 'none';
+            if (thrRow) thrRow.style.display = el.value !== 'manual' ? 'block' : 'none';
+          } else if (el.id === 'cutoffSelect') {
+            state.settings.cutoffHour = Number(el.value) || 0;
+            saveState();
+            toast('🌙 Cutoff updated');
+          } else if (el.id === 'importFileInput' && el.files && el.files[0]) {
+            const reader = new FileReader();
+            reader.onload = () => {
+              try {
+                const parsed = JSON.parse(String(reader.result || '{}'));
+                state = sanitizeState(parsed);
+                saveState();
+                syncJournalDraft(true);
+                render(false);
+                toast('✅ Backup restored!');
+              } catch (err) {
+                toast('⚠️ Invalid backup JSON file');
+              }
+            };
+            reader.readAsText(el.files[0]);
+          }
+        } catch (err) {
+          showError('Input error: ' + err.message);
+        }
+      });
+
+      // 3. Delegated input listener (Journal live draft & search without losing focus)
+      document.addEventListener('input', (e) => {
+        const el = e.target;
+        if (!el) return;
+        if (el.id === 'journalTextInput') {
+          ui.journalDraftText = el.value;
+          ui.journalDirty = true;
+          const badge = document.getElementById('journalStatusBadge');
+          if (badge) { badge.className = 'mini-pill amber'; badge.textContent = '● Unsaved'; }
+        } else if (el.id === 'journalSearchInput') {
+          ui.journalSearch = el.value;
+          const pos = el.selectionStart;
+          render(true);
+          const nextEl = document.getElementById('journalSearchInput');
+          if (nextEl) { nextEl.focus(); try { nextEl.setSelectionRange(pos, pos); } catch (ex) {} }
+        }
+      });
+
+      // 4. Keyboard support (Enter on quick task, Escape to close modals)
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && document.activeElement && document.activeElement.id === 'quickTodoInput') {
+          e.preventDefault();
+          ACTIONS['add-todo']();
+        } else if (e.key === 'Escape') {
+          if (document.getElementById('confirmOverlay').classList.contains('open')) closeConfirm();
+          else if (document.getElementById('pinSetupOverlay').classList.contains('open')) closePinSetup();
+          else if (document.getElementById('timerOverlay').classList.contains('open')) closeTimerModal();
+          else if (document.getElementById('sheetOverlay').classList.contains('open')) closeSheet();
+        }
+      });
+
+      // 5. Android PWA Install Prompt & Service Worker
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        ui.deferredInstallPrompt = e;
+        if (ui.tab === 'settings') render(true);
+      });
+
+      window.addEventListener('appinstalled', () => {
+        ui.isStandalone = true;
+        ui.deferredInstallPrompt = null;
+        toast('🎉 Momentum installed on your phone!');
+        if (ui.tab === 'settings') render(true);
+      });
+
+      if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(() => {});
+        });
+      }
+
+      // 6. Initial Render & PIN Gate
+      render(false);
+      if (state.settings.pinEnabled && state.settings.pin.length === 4) {
+        openPinLock();
+      }
+    }
+
+    init();
+  })();
+  </script>
+</body>
+</html>

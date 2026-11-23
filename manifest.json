@@ -1,0 +1,47 @@
+{
+  "id": "./",
+  "name": "Momentum \u2014 Habit & Challenge Tracker",
+  "short_name": "Momentum",
+  "description": "Friendly offline-first habit, challenge, routine, and daily journal tracker.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
+  "orientation": "portrait",
+  "background_color": "#FAF6F0",
+  "theme_color": "#E86A33",
+  "categories": [
+    "productivity",
+    "lifestyle",
+    "health"
+  ],
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "./icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
